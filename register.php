@@ -1,5 +1,6 @@
  <?php include 'core/init.php';
 
+logged_in_redirect();
 
  if (empty($_POST) === false) {
     $required_fields = array('username','password','password_again','first_name','address','email');
@@ -77,12 +78,12 @@
         'address'       => $_POST['address'],
         'email'         => $_POST['email'],
         'username'      => $_POST['username'],
-        'password'      => $_POST['password']
-
+        'password'      => $_POST['password'],
+        'email_code'     => md5($_POST['username']+ microtime())
         );
 
     register_user($register_data);
-    header('Location: /indexs.php?sucess');
+    header('Location: ../index.php?sucess');
     exit();
 
  }elseif(empty($errors)=== false){ ?>

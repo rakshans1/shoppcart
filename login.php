@@ -1,5 +1,8 @@
 <?php 
-include 'core/init.php';?>
+include 'core/init.php';
+logged_in_redirect();
+
+?>
 
 <?php 
 
@@ -13,7 +16,7 @@ if (empty($_POST) === false) {
 	}elseif (user_exits($username) === false ) {
 		$errors[] = 'We can\'t find that username. Have you registered?';
 	}elseif (user_active($username) === false) {
-		$errors[] = 'You haven\'t activated your account!';
+		$errors[] = 'You haven\'t activated your account!.Please chechk your Email.';
 	}else {
 		$login = login($username, $password);
 		if($login === false){

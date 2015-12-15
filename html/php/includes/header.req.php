@@ -6,7 +6,7 @@
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
                                 <li><a href="#"><i class="fa fa-phone"></i>8286880177</a></li>
-                                <li><a href="shoppcartcare@gmail.com"><i class="fa fa-envelope"></i> shoppcartCare/a></li>
+                                <li><a href="shoppcartcare@gmail.com"><i class="fa fa-envelope"></i> Shoppcart Care</a></li>
                             </ul>
                         </div>
                     </div>

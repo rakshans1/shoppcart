@@ -1,12 +1,31 @@
 <?php 
+function activate($email,$email_code){
+	$email = mysql_real_escape_string($email);
+	$email_code = mysql_real_escape_string($email_code);
+
+	if (mysql_result( mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `email` = '$email' AND `email_code`= '$email_code' AND `active`= 0"),0)==1) {
+		mysql_query("UPDATE `users` SET `active`=1 WHERE `email` = '$email'");
+		return true;
+	}else  {
+		return false;
+	}
+
+
+
+}
+
+
+
+
 /*********************************************register Functions******************/
 function register_user($register_data){
+	include 'msg.php';
 	array_walk($register_data, 'array_sanitize');
 	$register_data['password'] = md5($register_data['password']); 
 	$fields = '`'.implode('`, `',array_keys($register_data)).'`';
 	$data = '\''.implode('\', \'',$register_data).'\'';
 	mysql_query("INSERT INTO `users` ($fields) VALUES ($data) ");
-
+	email($register_data['email'],'Activate Account...!!!',$message );
 }
 
 
