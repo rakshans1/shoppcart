@@ -1,7 +1,7 @@
 <?php
 
    $named = $_REQUEST['names'] ;
-  $conn = mysqli_connect("localhost","root","","categories") ;
+  $conn = mysqli_connect("localhost","root","","shoppcart") ;
    
    if(! $conn )
    {
