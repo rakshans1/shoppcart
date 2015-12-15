@@ -15,11 +15,11 @@
                                 <div id="mens" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul>
-                                           <li class="cp_btn"><a  class="active"onclick="return false" href="names=leafies">Leafies </a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=fruits">Fruits </a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=exoticfruits">Exotic fruits </a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=veggies">veggies</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=exoticveggies">Exotic veggies</a></li>
+                                           <li class="cp_btn"><a  class="active"onclick="return false" href="subr.php?names=leafies">Leafies </a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=fruits">Fruits </a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=exoticfruits">Exotic fruits </a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=veggies">veggies</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=exoticveggies">Exotic veggies</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -37,17 +37,17 @@
                                 <div id="gr" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=atta">Atta and flours</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=dals">Dals and pulses</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=food">Food additives</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=olive">Olive oil</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=rice">Rice</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=salt">Salt and sugar</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=spices">Pure ground spices</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=oil">Oil and ghee</a></li>
-                                             <li class="cp_btn"><a class="" onclick="return false" href="names=blended">Blended spices</a></li>
-                                              <li class="cp_btn"><a class="" onclick="return false" href="names=wholespices">Whole spices</a></li>
-                                               <li class="cp_btn"><a class="" onclick="return false" href="names=seasoning">Seasoning</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=atta">Atta and flours</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=dals">Dals and pulses</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=food">Food additives</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=olive">Olive oil</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=rice">Rice</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=salt">Salt and sugar</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=spices">Pure ground spices</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=oil">Oil and ghee</a></li>
+                                             <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=blended">Blended spices</a></li>
+                                              <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=wholespices">Whole spices</a></li>
+                                               <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=seasoning">Seasoning</a></li>
                                             
                                             
                                         </ul>
@@ -68,11 +68,11 @@
                                 <div id="br" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=cereals">Cereals</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=diet">Diet and soya snacks</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=dried">Dried and dry fruits</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=breafast">Breakfast and health bars</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=eggs">Eggs</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=cereals">Cereals</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=diet">Diet and soya snacks</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=dried">Dried and dry fruits</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=breafast">Breakfast and health bars</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=eggs">Eggs</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -91,13 +91,13 @@
                                 <div id="dairy" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=flavoured">Flavoured milk</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=milk">Milk</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=dairy">Other dairy products</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=butter">Buttter</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=flavoured">Flavoured milk</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=milk">Milk</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=dairy">Other dairy products</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=butter">Buttter</a></li>
                                             <li class="cp_btn"><a class="" onclick="return false" href="cheese.html">Cheese</a></li>
                                             <li class="cp_btn"><a class="" onclick="return false" href="yoghurt.html">Yoghurt</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=icecream">Ice cream and frozen yoghurt</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=icecream">Ice cream and frozen yoghurt</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -114,14 +114,14 @@
                                 <div id="d2" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=syrups">Syrups and cordials</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=tea">Tea</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=water">Water</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=coffee">Coffee</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=drink">Fruit drinks</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=juices">Juices</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=softdrinks">Soft drinks</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="names=sportsdrinks">Sports and energy drinks</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=syrups">Syrups and cordials</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=tea">Tea</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=water">Water</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=coffee">Coffee</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=drink">Fruit drinks</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=juices">Juices</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=softdrinks">Soft drinks</a></li>
+                                            <li class="cp_btn"><a class="" onclick="return false" href="subr.php?names=sportsdrinks">Sports and energy drinks</a></li>
                                         </ul>
                                     </div>
                                 </div>

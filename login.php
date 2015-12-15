@@ -60,7 +60,11 @@ if (empty($_POST) === false) {
  if (empty($errors)=== false) {
  ?>
 <h2>We tried to log you in, but....</h2>
-<?php echo output_errors($errors); }?> <br>     
+
+<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <?php echo output_errors($errors); }?>
+</div><br>      
 <form role="form" action="login.php" method="post" >
     <div class="form-group">
         <input type="text" class="form-control" name="username" placeholder="Username" required >

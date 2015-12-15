@@ -33,21 +33,41 @@ $(document).ready(function(){
 
  $(document).ready(function(){
     
-      
+ setTimeout(function(){     
 $('#content').load('html/php/includes/ifeature.php');
 
      $("a.cp_btn ").click(function(){
       $("a.active").removeClass("active");
       $(this).addClass("active");
 	});	
-          $("li.cp_btn a ").click(function(){
-         var page = $(this).attr('href');
-		$('#content').load('sub.php?'+page);
+         
+
+     	
+
+     	$("li.cp_btn a ").click(function(){
+	         var page = $(this).attr('href');
+	         var url = page.split(/\?+/).pop();
+	         setTimeout(function(){ 
+			$('#content').load('sub.php?'+url);
+	        },1000);
+    	});
+     
+		
         
-    
- });
-  
+
+    	$("li.cp_btn a ").click(function(){
+	         var page = $(this).attr('href');
+	         var url = page.split(/\?+/).pop(); 
+			$('#contentr').load('sub.php?'+url);
+		 });
+
+    	
+	},3000);
 });
+
+
+
+
 
 
 function loading(){

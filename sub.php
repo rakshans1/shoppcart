@@ -1,4 +1,3 @@
-
-                       <?php  include  "html/php/sub/dbcon.php";?>
+<?php  include  "html/php/sub/dbcon.php";?>
 
 
