@@ -16,7 +16,7 @@ if (empty($_POST) === false) {
 	}elseif (user_exits($username) === false ) {
 		$errors[] = 'We can\'t find that username. Have you registered?';
 	}elseif (user_active($username) === false) {
-		$errors[] = 'You haven\'t activated your account!.Please chechk your Email.';
+		$errors[] = 'You haven\'t activated your account!.Please check your Email.';
 	}else {
 		$login = login($username, $password);
 		if($login === false){
