@@ -1,3 +1,4 @@
+<div class="container">
 <div class="recommended_items"><!--recommend item -->
                             <h2 class="title text-center">Trending</h2>
 
@@ -151,3 +152,4 @@
                 </a>  
         </div><!--corusel item end-->
 </div><!--recommend item end-->
+</div>

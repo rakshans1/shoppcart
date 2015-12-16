@@ -1,11 +1,10 @@
 <?php
+
 function email($to,$subject,$message){
 	$from = "shoppcartcare@shoppcart.com";
 	$head = "From: $from\r\n" . "Content-type: text/html";
 	mail($to, $subject, $message,$head);
 }
-
-
 function logged_in_redirect(){
 	if (logged_in()===true ){
 		header('Location: /');
@@ -27,6 +26,5 @@ function sanitize($data){
 function output_errors($errors){
 	return '<ul><li>'.implode('</li><li><p class="lead">', $errors).'</p></li></ul>';
 }
-
 
 ?>

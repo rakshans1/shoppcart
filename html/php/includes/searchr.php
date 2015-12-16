@@ -1,4 +1,3 @@
-
 <div class="col-sm-4">
     <div class="product-image-wrapper">
         <div class="single-products">

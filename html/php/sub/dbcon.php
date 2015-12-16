@@ -15,7 +15,7 @@
    
 
  if ($result->num_rows > 0) {
-    // output data of each row
+    echo '<div class="row"><h2 class="title text-center">Featured Items in '.$named.'</h2>';
     while($row = $result->fetch_assoc()) {
       
     $pname=$row["pname"];
@@ -24,7 +24,7 @@
     $pdesc=$row["pdesc"];  
     $pquant=$row["pquant"];       
 
-include  "feature.php";
+    include  "feature.php";
 
 
           }

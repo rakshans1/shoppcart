@@ -5,8 +5,8 @@
                     <div class="col-sm-6">
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
-                                <li><a href="#"><i class="fa fa-phone"></i>8286880177</a></li>
-                                <li><a href="shoppcartcare@gmail.com"><i class="fa fa-envelope"></i> Shoppcart Care</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i> 8286880177</a></li>
+                                <li><a href="mailto:shoppcartcare@gmail.com"target="_blank"><i class="fa fa-envelope"></i> Shoppcart Care</a></li>
                             </ul>
                         </div>
                     </div>
@@ -69,11 +69,23 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="search_box pull-right">
-                            <input type="text" placeholder="Search"/>
+                    <div class="col-sm-3 col-md-3 pull-right">
+                        <form action="" method="POST" class="search_box" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search"  name="keywords">
+                            <div class="input-group-btn">
+                                <button class="btn btn-shop" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
                         </div>
+                        </form>
                     </div>
+
+                  <!-- <div class="col-sm-3">
+                        <div class="search_box pull-right">
+                            <input type="text" id="name" placeholder="Search"/>
+                            <button type="submit" id="fetch" ><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>-->
                 </div>
             </div>
         </div><!--/header-bottom-->

@@ -6,10 +6,13 @@
 <?php include 'html/php/includes/categories.inc.php'; ?><!--This is categories-->
         </div>
             <div class="col-sm-9 padding-right">
+
                     <div class="features_items "><!--features_items-->
                         
-
-                        <h2 class="title text-center">Features Items</h2>
+                    <div class="row">
+                            <?php include 'search.php'; ?>
+                    </div>
+                    
                             <div id="content" onload ="loading()">
                                 
                             <div><img class ="loader" id ="loader" src="images/loading.gif"></div>

@@ -263,7 +263,7 @@ a#scrollUp i{
   outline: medium none;
   padding-left: 10px;
   width: 155px;
-  background-image: url(../images/home/searchicon.png);
+  /*background-image: url(../images/home/searchicon.png);*/
   background-repeat: no-repeat;
   background-position: 130px;
 }
