@@ -14,11 +14,7 @@
   border-color: #eea236;
 }
 
-.productinfo img{
-  width: 100%;
-  
-    
-}
+
 
 @media (min-width: 640px) {
   .productinfo img {
@@ -39,3 +35,10 @@
   height: auto;
   width: 200px;
 }
+@media (min-width: 640px) {
+  .productinfos img {
+    width: 100%;
+    height: 250px;
+  }
+}
+
