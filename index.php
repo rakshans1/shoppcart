@@ -8,7 +8,7 @@
 
 <?php include 'html/php/includes/activatesuccess.php'; ?><!--This is activatesuccess-->
 
-<?php include 'html/php/includes/slider.inc.php'; ?><!--This is Slider-->
+<?php // include 'html/php/includes/slider.inc.php'; ?><!--This is Slider-->
 
 <?php include 'html/php/includes/overall/body.php'; ?><!--This is section-->
 

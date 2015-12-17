@@ -14,6 +14,11 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/my.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl-carousel/owl.theme.css">
+
+
+
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>

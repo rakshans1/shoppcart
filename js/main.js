@@ -1,14 +1,31 @@
-
-
-
-
-
-
-
-
-
-
-
+$(document).ready(function() {
+ 
+  var owl = $("#owl-demo");
+ 
+ owl.owlCarousel({
+      pagination: false,
+      itemsCustom : [
+        [0, 1],
+        [450, 1],
+        [600, 2],
+        [700, 2],
+        [1000, 2],
+        [1200, 3],
+        [1400, 3],
+        [1600, 3]
+      ],
+      
+ 
+  });
+ 	
+  // Custom Navigation Events
+  $(".next").click(function(){
+    owl.trigger('owl.next');
+  })
+  $(".prev").click(function(){
+    owl.trigger('owl.prev');
+  })
+});
 
 
 
@@ -64,7 +81,7 @@ $('#content').load('html/php/includes/ifeature.php');
 	         var url = page.split(/\?+/).pop();
 	         setTimeout(function(){ 
 			$('#content').load('sub.php?'+url);
-	        },1000);
+	        },100);
     	});
      
 		
@@ -77,7 +94,7 @@ $('#content').load('html/php/includes/ifeature.php');
 		 });
 
     	
-	},1000);
+	},100);
 });
 
 /*Gif animation*/

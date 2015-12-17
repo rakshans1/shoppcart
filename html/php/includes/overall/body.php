@@ -15,7 +15,7 @@
                     
                             <div id="content" onload ="loading()">
                                 
-                            <div><img class ="loader" id ="loader" src="images/loading.gif"></div>
+                            <!--<div><img class ="loader" id ="loader" src="images/loading.gif"></div>-->
 
                             </div>
                       </div>

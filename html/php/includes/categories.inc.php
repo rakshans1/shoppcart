@@ -149,9 +149,7 @@
                                             <li class="cp_btn"><a class="" onclick="return false" href="soapandbodywash.html">Soap & bodywash</a></li>
                                             <li class="cp_btn"><a class="" onclick="return false" href="cosmetics.html">Cosmetics</a></li>
                                             
-                                            <!--<li class="cp_btn"><a class="" onclick="return false" href="#">Dolce and Gabbana</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="#">Chanel</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="#">Gucci</a></li>-->
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -178,9 +176,7 @@
                                             <li class="cp_btn"><a class="" onclick="return false" href="noodleandsoup.html">Noodle & soup</a></li>
                                             <li class="cp_btn"><a class="" onclick="return false" href="readymixturesandinstantmeals.html">Ready mixtures&instant meals</a></li>
                                             
-                                            <!--<li class="cp_btn"><a class="" onclick="return false" href="#">Dolce and Gabbana</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="#">Chanel</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="#">Gucci</a></li>-->
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -206,9 +202,7 @@
                                             <li class="cp_btn"><a class="" onclick="return false" href="jamsandspreads.html">jams  and spreads</a></li>
                                             
                                             
-                                            <!--<li class="cp_btn"><a class="" onclick="return false" href="#">Dolce and Gabbana</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="#">Chanel</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="#">Gucci</a></li>-->
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -233,9 +227,7 @@
                                             <li class="cp_btn"><a class="" onclick="return false" href="diapersandwipes.html">diapers and wipes</a></li>
                                             
                                             
-                                            <!--<li class="cp_btn"><a class="" onclick="return false" href="#">Dolce and Gabbana</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="#">Chanel</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="#">Gucci</a></li>-->
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -265,9 +257,7 @@
                                               <li class="cp_btn"><a class="" onclick="return false" href="householdsundries.html">household sundries</a></li>
                                                
                                             
-                                            <!--<li class="cp_btn"><a class="" onclick="return false" href="#">Dolce and Gabbana</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="#">Chanel</a></li>
-                                            <li class="cp_btn"><a class="" onclick="return false" href="#">Gucci</a></li>-->
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -278,9 +268,9 @@
                             
                            
                         </div>
-                        <div class="shipping text-center"><!--shipping-->
+                        <div class="shipping text-center hidden-xs">
                             <img src="images/home/shipping.jpg" alt="" />
-                        </div><!--/shipping-->
+                        </div>
                     
                     </div>
         
