@@ -26,14 +26,13 @@ if (isset($_POST['keywords'])) {
 	$where .= " OR ";
 	foreach ($keywords as $keyw => $keywordw) {
 		$where .= " `sub` LIKE '%$keywordw%'";
-		if ($key != ($total_keywords - 1)) {
+		if ($keyw != ($total_keywords - 1)) {
 			$where .= " AND ";
 		}
 	}
 	
 	$results = "SELECT `pname`,`pprice`,`pimage` FROM `cat` WHERE  $where";
-	
-		$conn = mysqli_connect("localhost","root","","shoppcart") ;
+ 		$conn = mysqli_connect("localhost","root","","shoppcart") ;
 		$result = $conn->query($results);
 		$results_num = $result->num_rows;
 	if ($result->num_rows > 0) {
@@ -78,7 +77,7 @@ function search_results($keywords){
 	$where .= " OR ";
 	foreach ($keywords as $keyw => $keywordw) {
 		$where .= " `sub` LIKE '%$keywordw%'";
-		if ($key != ($total_keywords - 1)) {
+		if ($keyw != ($total_keywords - 1)) {
 			$where .= " AND ";
 		}
 	}

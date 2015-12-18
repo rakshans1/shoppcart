@@ -1,10 +1,9 @@
-
-
+<div class="col-xs-offset-2 col-md-offset-0 col-sm-offset-0"> 
 <br>
 <li><button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-in"></i> Login</button></li>
 
 <a href="register.php"><li><button type="button" class="btn btn-primary btn-md "><i class="fa fa-lock"></i> Sign Up !</button></li></a>
-
+</div>
 
 
 

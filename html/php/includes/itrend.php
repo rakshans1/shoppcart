@@ -38,6 +38,9 @@
                 <i class="fa fa-angle-left"></i>
                 </a>
 </div>
+
+
+
 </div>
 </div><!--recommend item end-->
 </div>

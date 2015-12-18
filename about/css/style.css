@@ -6,9 +6,9 @@ body {
   font-size: 16px;
 }
 
-.logo-img {
-  height: 35px;
-  margin: 20px;
+.logo img{
+  height: auto;
+  width: 200px;
 }
 
 .primary, strong, h2 {
@@ -116,4 +116,8 @@ footer {
 a{
   color: #FE980F; !important
 
+}
+.logo-img {
+  height: 35px;
+  margin: 20px;
 }

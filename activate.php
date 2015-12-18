@@ -35,7 +35,7 @@ logged_in_redirect();
 			  <?php echo output_errors($errors); ?>
 			</div></div><?php
 		}else{
-			header('Location: /index.php?active');
+			header('Location: /?active');
 		}
 
 	}else{

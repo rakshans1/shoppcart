@@ -63,7 +63,7 @@ $message ='<EOF
 				<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tbody><tr>
 				<td align="center" style="padding:14px 20px 14px 20px;background-color:#FE980F;border-radius:4px">
-				<a href="shoppcart.ddns.net/activate.php?email='.$register_data['email'].'&email_code='.$register_data['email_code'].'"    " style="font-family:helvetica neue,helvetica,arial,sans-serif;font-weight:bold;font-size:18px;line-height:22px;color:#ffffff;text-decoration:none;display:block;text-align:center;max-width:400px;overflow:hidden;text-overflow:ellipsis" target="_blank">
+				<a href="shoppcart.ddns.net/activate?email='.$register_data['email'].'&email_code='.$register_data['email_code'].'"    " style="font-family:helvetica neue,helvetica,arial,sans-serif;font-weight:bold;font-size:18px;line-height:22px;color:#ffffff;text-decoration:none;display:block;text-align:center;max-width:400px;overflow:hidden;text-overflow:ellipsis" target="_blank">
 				Confirm your email
 				</a>
 				</td>

@@ -26,7 +26,7 @@
         </div><!--/header_top-->
         
         <div class="header-middle"><!--header-middle-->
-            <div class="container">
+            <div class="container ">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
                         <div class="logo pull-left">
@@ -55,13 +55,16 @@
                                 <li><a href="/" class="active">Home</a></li>
                                 <li><a href="#">Blog</a></li>
                                 <li><a href="contact-us.html">Contact</a></li>
-                                <li><a href="about/" >About</a></li>
+                                <li><a href="about/index" >About</a></li>
                             </ul>
                         </div>
                     </div>
-                    </div>
-                    <div class="row">
+                    
+                  
                     <div class="col-sm-3 col-xs-9 col-md-3 pull-right">
+                    <div class="hidden-xs">
+                    <br><br>
+                    </div>
                         <form action="" method="POST" class="search_box" role="search">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search"  name="keywords">
