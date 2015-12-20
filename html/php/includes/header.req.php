@@ -24,7 +24,6 @@
                 </div>
             </div>
         </div><!--/header_top-->
-        
         <div class="header-middle"><!--header-middle-->
             <div class="container ">
                 <div class="row">
@@ -37,7 +36,6 @@
                 </div>
             </div>
         </div><!--/header-middle-->
-    
         <div class="header-bottom"><!--header-bottom-->
             <div class="container">
                 <div class="row">
@@ -59,8 +57,6 @@
                             </ul>
                         </div>
                     </div>
-                    
-                  
                     <div class="col-sm-3 col-xs-9 col-md-3 pull-right">
                     <div class="hidden-xs">
                     <br><br>
@@ -74,8 +70,6 @@
                         </div>
                         </form>
                     </div>
-
-                 
                 </div><!--/row-->
             </div><!--/container-->
         </div><!--/header-bottom-->

@@ -1,4 +1,7 @@
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ profile.php?username=$1 [L]
+
+

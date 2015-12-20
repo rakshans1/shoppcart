@@ -1,4 +1,17 @@
 <?php 
+
+function update_user($update_data){
+	$update =array();
+	array_walk($update_data, 'array_sanitize');
+	foreach ($update_data as $field => $data) {
+		$update[] = '`'.$field . '`=\''.$data.'\'';
+	}
+	mysql_query("UPDATE `users` SET " . implode(', ', $update) . " WHERE `user_id` =" . $_SESSION['user_id']);
+
+}
+
+
+/*********************************************Email Activation Functions******************/
 function activate($email,$email_code){
 	$email = mysql_real_escape_string($email);
 	$email_code = mysql_real_escape_string($email_code);
@@ -13,7 +26,13 @@ function activate($email,$email_code){
 
 
 }
-
+/*********************************************Change Password******************/
+function change_password($user_id,$password){
+	$user_id = (int)$user_id;
+	$password = md5($password);
+	mysql_query("UPDATE `users` SET `password` = '$password' WHERE `user_id` = $user_id");
+	
+}
 
 
 
@@ -55,7 +74,7 @@ function user_data($user_id){
 
 }
 
-/*********************************************Logg in Functions******************/
+/*********************************************Log in Functions******************/
  
 function logged_in(){
 	return (isset($_SESSION['user_id']))? true : false;

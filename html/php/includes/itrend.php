@@ -1,7 +1,7 @@
-<div class="container">
+
 <div class="recommended_items"><!--recommend item -->
                             <h2 class="title text-center">Trending</h2>
-<div class="carousel slide">
+<div class="carousel">
 <div id="owl-demo" class="owl-carousel owl-item ">
 <?php
 
@@ -30,7 +30,7 @@
    mysqli_close($conn);
 ?>
 </div>
-<div class="customNavigation hidden-xs">
+<div class="hidden-xs">
                 <a class="btn  next right recommended-item-control ">
                 <i class="fa fa-angle-right"></i>
                 </a>
@@ -43,4 +43,3 @@
 
 </div>
 </div><!--recommend item end-->
-</div>

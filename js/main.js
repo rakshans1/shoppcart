@@ -105,41 +105,7 @@ $('#content').load('html/php/includes/ifeature.php');
 	},100);
 });
 
-/*Account page*/
-$(document).ready(function(){
-    
- setTimeout(function(){     
-$('#account').load('personalinfo');
 
-     $("a.cp_btn ").click(function(){
-      $("li.active").removeClass("active");
-      $(this).addClass("active");
-	});	
-         
-
-     	
-
-     	
-     	/*Account page*/
-    	$("li.acc a ").click(function(){
-	         var page = $(this).attr('href');
-	         setTimeout(function(){ 
-			$('#account').load(page);
-	        },100);
-    	});
-     
-		
-        
-
-    	$("li.cp_btn a ").click(function(){
-	         var page = $(this).attr('href');
-	         var url = page.split(/\?+/).pop(); 
-			$('#contentr').load('sub.php?'+url);
-		 });
-
-    	
-	},100);
-});
 
 
 
