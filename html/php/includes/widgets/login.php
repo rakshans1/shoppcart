@@ -29,7 +29,8 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
                      </form>
-                   
+                     <br>
+                         Forgot <a href="recover.php?mode=username">Username</a> or <a href="recover.php?mode=password">password</a>?
                     </div>
             </div>
         </div>

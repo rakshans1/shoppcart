@@ -42,19 +42,6 @@ logged_in_redirect();
 		header('Location: / ');
 		exit();
 	}
-
-
-
-
-
 ?><!--This is head-->
-
-
-
-
-
-
-
-
 <?php require 'html/php/includes/footer.req.php'; ?><!--This is footer--> 
 
