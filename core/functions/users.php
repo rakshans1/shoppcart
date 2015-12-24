@@ -1,5 +1,35 @@
 <?php 
+/*********************************************product Functions******************/
+function product_id_from_productname($productname){
+	$productname = sanitize($productname);
+	return mysql_result(mysql_query("SELECT `p_id` FROM `cat` WHERE `pname`= '$productname' "), 0 , 'p_id');
 
+}
+function product_data($p_id){
+	$data = array();
+	$p_id = (int)$p_id;
+
+	$func_num_args = func_num_args();
+	$func_get_args = func_get_args();
+
+	if ($func_get_args > 1) {
+		unset($func_get_args[0]);
+
+		$fields = '`'. implode('`, `', $func_get_args). '`';
+
+		$data = mysql_fetch_assoc(mysql_query("SELECT $fields FROM `cat` WHERE `p_id` = $p_id" ));
+		return $data;
+
+	}
+
+
+
+}
+function product_exits($productname){
+	$productname = sanitize($productname);
+	return (mysql_result(mysql_query("SELECT COUNT(`p_id`) FROM `cat` WHERE `pname` = '$productname'"), 0) == 1 ) ? true : false;
+}
+/*********************************************user data update Functions******************/
 function update_user($update_data){
 	$update =array();
 	array_walk($update_data, 'array_sanitize');

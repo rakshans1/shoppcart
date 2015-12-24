@@ -1,5 +1,6 @@
-  <div class="item">
-                  <div class="col-sm-12 col-md-12">
+<div class="item">
+<a class="link" href="<?php echo  $pname; ?>">
+<div class="col-sm-12 col-md-12">
     <div class="product-image-wrapper">
         <div class="single-products">
                 <div class="productinfos text-center">
@@ -13,7 +14,7 @@
                         <a href="#" class="btn btn-default btn-block add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
                         <div class="col-sm-6">
-                            <a href="#" class="btn btn-default btn-block add-to-cart"><i class="fa fa-info-circle"></i>Details</a>
+                            <a href="<?php echo  $pname; ?>" class="btn btn-default btn-block add-to-cart"><i class="fa fa-info-circle"></i>Details</a>
                         </div>
                     </div>    
                 </div>
@@ -25,8 +26,8 @@
         </div>
     </div>
 </div>
-
-  </div>
+</a>
+</div>
 
  
 

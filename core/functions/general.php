@@ -18,11 +18,11 @@ function protect_page(){
 	}
 }
 function array_sanitize(&$item){
-	$item = mysql_real_escape_string($item);
+	$item = htmlentities(strip_tags(mysql_real_escape_string($item)));
 }
 function sanitize($data){
-	return mysql_real_escape_string($data);
-}
+	return htmlentities(strip_tags(mysql_real_escape_string($data)));
+} 
 function output_errors($errors){
 	return '<ul><li>'.implode('</li><li><p class="lead">', $errors).'</p></li></ul>';
 }

@@ -2,7 +2,7 @@
 <br>
 <li><button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-in"></i> Login</button></li>
 
-<a href="register.php"><li><button type="button" class="btn btn-primary btn-md "><i class="fa fa-lock"></i> Sign Up !</button></li></a>
+<a href="register"><li><button type="button" class="btn btn-primary btn-md "><i class="fa fa-lock"></i> Sign Up !</button></li></a>
 </div>
 
 
@@ -20,7 +20,7 @@
 
                 <!-- body (form) -->
                 <div class="modal-body">
-                    <form role="form" action="login.php" method="post" >
+                    <form role="form" action="login" method="post" >
                         <div class="form-group">
                             <input type="text" class="form-control" name="username" placeholder="Username" required>
                         </div>

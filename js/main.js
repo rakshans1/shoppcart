@@ -115,3 +115,5 @@ $('#content').load('html/php/includes/ifeature.php');
 function loading(){
     document.getElementById('loader').style.display ="none";
   }
+
+
