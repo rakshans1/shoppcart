@@ -1,12 +1,21 @@
 <?php 
+function has_access($user_id,$type){
+	$user_id = (int)$user_id;
+	$type = (int)$type;
+	return (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `user_id` = '$user_id' AND `type` = '$type' "),0)==1)? true : false;
+}
 function recover($mode,$email){
 	$mode = sanitize($mode);
 	$email = sanitize($email);
-	$user_data = user_data(user_id_from_email($email),'first_name','username');
+	$user_data = user_data(user_id_from_email($email),'user_id','first_name','username');
 	if ($mode == 'username') {
 		email($email,'Your username',"Hello ".$user_data['first_name'].",\n\nYour username is : ".$user_data['username']."\n\n-Shoppcart");
 	}elseif ($mode == 'password') {
-		
+		$generated_password = substr(md5(rand(999, 999999)),0,8);
+		change_password($user_data['user_id'],$generated_password);
+		$user_id = $user_data['user_id'];
+		mysql_query("UPDATE `users` SET `password_recover`=1 WHERE `user_id` = '$user_id'");
+		email($email,'Your Password',"Hello ".$user_data['first_name'].",\n\nYour New Password is : ".$generated_password."\n\n-Shoppcart");
 	}
 }
 
@@ -51,7 +60,7 @@ function update_user($update_data){
 	}
 	mysql_query("UPDATE `users` SET " . implode(', ', $update) . " WHERE `user_id` =" . $_SESSION['user_id']);
 
-}
+} 
 
 
 /*********************************************Email Activation Functions******************/
@@ -73,6 +82,7 @@ function activate($email,$email_code){
 function change_password($user_id,$password){
 	$user_id = (int)$user_id;
 	$password = md5($password);
+	mysql_query("UPDATE `users` SET `password_recover`=0 WHERE `user_id` = '$user_id'");
 	mysql_query("UPDATE `users` SET `password` = '$password' WHERE `user_id` = $user_id");
 	
 }

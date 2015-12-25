@@ -10,7 +10,7 @@
    }
    
    
-   $sql = 'SELECT * FROM `cat` ORDER BY     RAND() LIMIT 0,6;';
+   $sql = 'SELECT * FROM `cat` ORDER BY     RAND() LIMIT 0,12;';
    $result = $conn->query($sql);
 
    

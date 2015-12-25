@@ -54,6 +54,13 @@ require 'html/php/includes/header.req.php'; ?>
         <div class="col-sm-9  col-lg-9 col-md-9">
              <h2 class="text-center">Change Password</h2>
              <?php
+ if (isset($_GET['r']) === true && empty($_GET['r']) === true) {
+                 echo '<div class="alert alert-warning alert-dismissible" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      You must change your password... 
+                    </div>';
+             } 
+                     
  if (empty($_POST)===false && empty($errors)=== true) {
     change_password($session_user_id,$_POST['password']);
     echo '<div class="alert alert-success alert-dismissible" role="alert">

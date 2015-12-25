@@ -52,7 +52,7 @@ logged_in_redirect();
                 <div class="row">
                     <div class="col-sm-12 ">
                         <div class="logo text-center">
-                            <a href="index.php"><img src="images/home/logo.png" alt="" /></a>
+                            <a href="/"><img src="images/home/logo.png" alt="" /></a>
                         </div>
                        </div> 
                     

@@ -17,6 +17,22 @@ function protect_page(){
 		exit();
 	}
 }
+function admin_protect(){
+	global $user_data;
+	if (has_access($user_data['user_id'],1) === false) {
+		header('Location: /');
+		exit();
+	}
+}
+function adminormoderate_protect(){
+	global $user_data;
+	if (has_access($user_data['user_id'],2) === true || has_access($user_data['user_id'],1) === true) {
+		
+	}else{
+		header('Location: /');
+		exit();
+	}
+}
 function array_sanitize(&$item){
 	$item = htmlentities(strip_tags(mysql_real_escape_string($item)));
 }
