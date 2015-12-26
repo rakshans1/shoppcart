@@ -14,7 +14,9 @@
                     </div>
                     
                             <div id="content" onload ="loading()">
-                                
+                                <?php 
+                                echo '<h2 class="title text-center">Featured Items From all Categories</h2>';
+                                get_products(); ?>
                             <!--<div><img class ="loader" id ="loader" src="images/loading.gif"></div>-->
 
                             </div>

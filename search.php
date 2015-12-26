@@ -31,7 +31,7 @@ if (isset($_POST['keywords'])) {
 		}
 	}
 	
-	$results = "SELECT `pname`,`pprice`,`pimage` FROM `cat` WHERE  $where";
+	$results = "SELECT `pname`,`pprice`,`pimage` FROM `products` WHERE  $where";
  		$conn = mysqli_connect("localhost","root","","shoppcart") ;
 		$result = $conn->query($results);
 		$results_num = $result->num_rows;
@@ -81,7 +81,7 @@ function search_results($keywords){
 			$where .= " AND ";
 		}
 	}
-	$results = "SELECT `pname`,`pprice`,`pimage` FROM `cat` WHERE  $where";
+	$results = "SELECT `pname`,`pprice`,`pimage` FROM `products` WHERE  $where";
 
 	$results_num=($results = mysql_query($results)) ? mysql_num_rows($results): 0;
 	if ($results_num === 0) {

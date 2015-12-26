@@ -1,3 +1,5 @@
-<?php  include  "html/php/sub/dbcon.php";?>
-
-
+<?php
+	include 'core/init.php';
+   $named = $_REQUEST['names'] ;
+	get_sub($named );
+?>

@@ -11,7 +11,7 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                        <a href="#" class="btn btn-default btn-block add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        <a href="cart?add=<?php echo $pid; ?>" class="btn btn-default btn-block add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
                         <div class="col-sm-6">
                             <a href="<?php echo  $pname; ?>" class="btn btn-default btn-block add-to-cart"><i class="fa fa-info-circle"></i>Details</a>

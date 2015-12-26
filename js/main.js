@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
  
   var owl = $("#owl-demo");
@@ -63,11 +64,8 @@ $(document).ready(function(){
 
 
 /*Page Loading*/
- $(document).ready(function(){
-    
+$(document).ready(function(){
  setTimeout(function(){     
-$('#content').load('html/php/includes/ifeature.php');
-
      $("a.cp_btn ").click(function(){
       $("a.active").removeClass("active");
       $(this).addClass("active");

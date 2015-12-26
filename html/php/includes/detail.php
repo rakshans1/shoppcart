@@ -24,7 +24,14 @@
 					<div class="row">
                         <div class="col-xs-12">
                         <a href="#" class="btn btn-default add-to-carts">Buy Now</a>
-                        <a href="#" class="btn btn-default add-to-carts"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                        <?php
+							$s = $product_data['p_id'];
+							if (isset($_SESSION['product_'.$s])) {
+							   echo '<a href="cart?add='.$s.'" class="btn btn-default add-to-carts"><i class="fa fa-cart-plus"></i> Added to cart</a>';
+							}else{
+								echo '<a href="cart?add='.$s.'" class="btn btn-default add-to-carts"><i class="fa fa-shopping-cart"></i> Add to cart</a>';
+							}
+							?>
                         </div>
                     </div> 	
                     <br>
@@ -49,3 +56,5 @@
 		</div><!--/col-md-9-->
 </div><!--row-->
 </div><!--body-->
+
+

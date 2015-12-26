@@ -1,5 +1,49 @@
 <?php
+/*********************************************General Functions******************/
+function redirect($location){
+return header("Location: $location ");
+}
+function previous(){
+return header("location:javascript://history.go(-1)");
+}
+function set_message($msg){
+if(!empty($msg)) {
+$_SESSION['message'] = $msg;
+} else {
+$msg = "";
+    }
+}
+function display_message() {
+    if(isset($_SESSION['message'])) {
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
+}
+/*********************************************Database Functions******************/
+function query($sql){
+	global $connection;
+	return mysqli_query($connection,$sql);
+}
+function confirm($result){
 
+global $connection;
+
+if(!$result) {
+
+die("QUERY FAILED " . mysqli_error($connection));
+
+
+	}
+
+
+}
+function fetch_array($result){
+
+return mysqli_fetch_array($result);
+
+
+}
+/*********************************************Login & Register Functions******************/
 function email($to,$subject,$message){
 	$from = "shoppcartcare@shoppcart.com";
 	$head = "From: $from\r\n" . "Content-type: text/html";

@@ -1,4 +1,4 @@
-<?php include 'core/init.php';
+<?php require 'core/init.php';
 
 require 'html/php/includes/head.req.php'; //This is head-->
 
@@ -8,7 +8,7 @@ include 'html/php/includes/registersuccess.php'; //<!--This is registersuccess--
 
 include 'html/php/includes/activatesuccess.php'; //<!--This is activatesuccess-->
 
-include 'html/php/includes/slider.inc.php'; //<!--This is Slider-->
+//include 'html/php/includes/slider.inc.php'; //<!--This is Slider-->
 
 include 'html/php/includes/overall/body.php'; //<!--This is section-->
 

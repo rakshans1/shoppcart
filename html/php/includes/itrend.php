@@ -12,11 +12,11 @@
    {
       die('Could not connect: ' . mysql_error());
    }
-   $sql = 'SELECT * FROM `cat` ORDER BY     RAND() LIMIT 0,6;';
+   $sql = 'SELECT * FROM `products` ORDER BY     RAND() LIMIT 0,6;';
    $result = $conn->query($sql);
  if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-      
+    $pid=$row["p_id"];  
     $pname=$row["pname"];
     $pprice=$row["pprice"];  
     $pimage=$row["pimage"];  
