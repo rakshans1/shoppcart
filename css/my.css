@@ -1,3 +1,24 @@
+a {
+color: #FE980F; 
+}
+.panel-warning {
+  border-color: #FE980F;
+  border-width: 5px;
+}
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #FE980F;
+  border-radius: 10px;
+}
 .acc-header{
     font-size: 20px;
     font-weight: bold;
@@ -7,7 +28,7 @@
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #777;
-  background-color: #eee;
+  background-color: #fff;
 }
 
 .loader{
@@ -65,7 +86,8 @@
 
 
 /*************************
-*******product details******/
+*******product details******
+****************************/
 
 @media (min-width: 640px) {
 .container-main {
@@ -157,6 +179,6 @@
   margin-right:5px;
 }
 
-.link:hover img{
+.thumbnail:hover{
  border: 2px solid #fb8903;
 }

@@ -5,14 +5,14 @@
 				<div class="pull-right">
 					<i class="fa fa-heart fa-3x">&nbsp</i>
 				</div>
-				<div class="">
-				<img class ="img-responsive center-block" src="<?php  echo $product_data['pimage'];?>"  alt="" />
+				<div class="productinfo">
+				<img class ="img-responsive" src="<?php  echo $product_data['pimage'];?>"  alt="" />
 				</div>
 			</div>
 		</div><!--/col-md-4-->
-		
+		<div class="panel panel-warning">
+  			<div class="panel-body">
 		<div class="col-sm-8 col-xs-12">
-			<div class="container-main ">
 				<div class="productdetail">
 				<br>
 					<?php $pname = $product_data['pname']; $srt = str_replace("_"," ","$pname");?>
@@ -35,25 +35,29 @@
                         </div>
                     </div> 	
                     <br>
-                    
 				</div>
-			</div><!--contaier-main-->
 		</div><!--/col-md-9-->
+		 </div>
+		</div>
 </div><!--row-->
 <div class="row">
+		<div class="panel panel-success">
+  			<div class="panel-body">
 		<div class="col-md-12">
-			<div class="container-main">
 			<h2 class="title text-center">Description</h2>
 			<h3><?php  echo $product_data['pdesc'];?></h3>
-			</div><!--contaier-main-->
 		</div><!--/col-md-9-->
+		</div>
+		</div>
 </div><!--row-->
 <div class="row">
+		<div class="panel panel-primary">
+  			<div class="panel-body">
 		<div class="col-md-12">
-			<div class="container-main">
 			<?php include 'html/php/includes/similar.php' ?>
-			</div><!--contaier-main-->
 		</div><!--/col-md-9-->
+		</div>
+		</div>
 </div><!--row-->
 </div><!--body-->
 

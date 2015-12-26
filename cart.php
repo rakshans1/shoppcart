@@ -65,6 +65,10 @@ function cart(){
 				  <td><a class='btn btn-success' href="cart?add={$row['p_id']}"><span class='glyphicon glyphicon-plus'></span></a>   <a class='btn btn-warning' href="cart?remove={$row['p_id']}"><span class='glyphicon glyphicon-minus'></span></a>
 				<a class='btn btn-danger' href="cart?delete={$row['p_id']}"><span class='glyphicon glyphicon-remove'></span></a></td>         
 				  </tr>
+				  <input type="hidden" name="item_name_{$item_name}" value="{$srt}">
+				  <input type="hidden" name="item_number_{$item_number}" value="{$row['p_id']}">
+				  <input type="hidden" name="amount_{$amount}" value="{$row['pprice']}">
+			      <input type="hidden" name="quantity_{$quantity}" value="{$value}">
 DELIMETER;
 			echo $product;	
 			$item_name++;
@@ -79,5 +83,16 @@ DELIMETER;
 }
  }
 }
+function show_paypal() {
+if(isset($_SESSION['item_quantity']) && $_SESSION['item_quantity'] >= 1) {
+$paypal_button = <<<DELIMETER
+    <input type="image" name="upload" border="0"
+src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+alt="PayPal - The safer, easier way to pay online">
+DELIMETER;
+return $paypal_button;
+  }
+}
+
 ?>
  

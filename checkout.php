@@ -1,4 +1,5 @@
 <?php require 'cart.php'; 
+protect_page();
 require 'html/php/includes/head.req.php'; 
 require 'html/php/includes/header.req.php';?>
 
@@ -15,7 +16,7 @@ require 'html/php/includes/header.req.php';?>
             }?>
 <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="edwindiaz123-facilitator@gmail.com">
+<input type="hidden" name="business" value="shoppcartcare@gmail.com">
 <input type="hidden" name="currency_code" value="US">
     <table class="table table-striped">
         <thead>
@@ -31,7 +32,7 @@ require 'html/php/includes/header.req.php';?>
             <?php cart(); ?>  
         </tbody>
     </table>
-  
+     <?php echo show_paypal(); ?>
 </form>
 <!--  ***********CART TOTALS*************-->
             

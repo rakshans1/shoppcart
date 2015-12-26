@@ -1,6 +1,7 @@
 <div class="item">
 <a class="link" href="<?php echo  $pname; ?>">
 <div class="col-sm-12 col-md-12">
+    <div class="thumbnail">
     <div class="product-image-wrapper">
         <div class="single-products">
                 <div class="productinfos text-center">
@@ -25,6 +26,7 @@
             </ul>
         </div>
     </div>
+</div>
 </div>
 </a>
 </div>
