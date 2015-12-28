@@ -5,24 +5,24 @@
         </li>
 
           <li class="">
-            <a href="admin?orders"><i class="fa fa-fw fa-dashboard"></i>Orders</a>
+            <a href="admin?orders"><i class="fa fa-fw fa-shopping-bag"></i> Orders</a>
         </li>
 
          <li class="">
-            <a href="admin?reports"><i class="fa fa-fw fa-dashboard"></i>Reports</a>
+            <a href="admin?reports"><i class="fa fa-fw fa-bar-chart-o"></i> Reports</a>
         </li>
         <li>
-            <a href="admin?products"><i class="fa fa-fw fa-bar-chart-o"></i> View Products</a>
+            <a href="admin?products"><i class="fa fa-fw fa-tag"></i> View Products</a>
         </li>
         <li>
-            <a href="admin?add_product"><i class="fa fa-fw fa-table"></i> Add Product</a>
+            <a href="admin?add_product"><i class="fa fa-fw fa-cart-plus"></i> Add Product</a>
         </li>
         
         <li>
-            <a href="admin?categories"><i class="fa fa-fw fa-desktop"></i> Categories</a>
+            <a href="admin?categories"><i class="fa fa-fw fa-server"></i> Categories</a>
         </li>
         <li>
-            <a href="admin?users"><i class="fa fa-fw fa-wrench"></i>Users</a>
+            <a href="admin?users"><i class="fa fa-fw fa-user"></i> Users</a>
         </li>
     
     </ul>

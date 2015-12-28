@@ -3,7 +3,7 @@ color: #FE980F;
 }
 .panel-warning {
   border-color: #FE980F;
-  border-width: 5px;
+  border-width: 1px;
 }
 .badge {
   display: inline-block;

@@ -1,4 +1,88 @@
 <?php
+/***************************Add Products in admin********************/
+function add_product() {
+if(isset($_POST['publish']) && empty($_POST['publish']) === false) {
+$product_title          = escape_string($_POST['product_title']);
+$srt                    = (str_replace(" ","_","{$product_title}"));
+$product_category_id    = escape_string($_POST['product_category_id']);
+$product_price          = escape_string($_POST['product_price']);
+$product_description    = escape_string($_POST['product_description']);
+$product_quantity       = escape_string($_POST['product_quantity']);
+$product_image          = escape_string($_FILES['file']['name']);
+$image_temp_location    = $_FILES['file']['tmp_name'];
+$uploads_dir = uploads_dir($product_category_id );
+$uploads_dirs = $uploads_dir. $product_image;
+move_uploaded_file($image_temp_location  ,$uploads_dirs);
+$query = query("INSERT INTO products(pname, product_cat_id, pprice, pdesc, pquant, pimage) VALUES('{$srt}', '{$product_category_id}', '{$product_price}', '{$product_description}', '{$product_quantity}', '{$uploads_dirs}')");
+$last_id = last_id();
+confirm($query);
+set_message("New Product was Added <a href=".$product_title." target=\"_blank\">View Product</a>");
+
+        }
+}
+function show_categories_add_product_page(){
+$query = query("SELECT * FROM categories");
+confirm($query);
+while($row = fetch_array($query)) {
+$categories_options = <<<DELIMETER
+ <option value="{$row['cat_id']}">{$row['cat_title']}</option>
+DELIMETER;
+echo $categories_options;
+     }
+}
+/************************ Admin Products Page ********************/
+function get_products_in_admin(){
+$query = query(" SELECT * FROM products ORDER BY p_id DESC");
+confirm($query);
+while($row = fetch_array($query)) {
+$category = show_product_category_title($row['product_cat_id']);
+$srt = strtoupper(str_replace("_"," ","{$row['pname']}"));
+$product_image = $row['pimage'];
+$product = <<<DELIMETER
+        <tr>
+            <td>{$row['p_id']}</td>
+            <td><a href="{$row['pname']}" target="_blank">{$srt}</a><br>
+             <img width='100' src="$product_image" alt="">
+            </td>
+            <td>{$category}</td>
+            <td>{$row['pprice']}</td>
+            <td>{$row['pquant']}</td>
+             <td><a class="btn btn-warning" href="/admin?edit_product&id={$row['p_id']}"><span class="glyphicon glyphicon glyphicon-pencil"></span></a></td>
+             <td><a class="btn btn-danger" href="html/php/includes/admin/delete_product.php?id={$row['p_id']}&i={$row['pimage']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+DELIMETER;
+echo $product;
+        }
+}
+function show_product_category_title($product_category_id){
+$category_query = query("SELECT * FROM categories WHERE cat_id = '{$product_category_id}' ");
+confirm($category_query);
+while($category_row = fetch_array($category_query)) {
+return $category_row['cat_title'];
+}
+}
+function display_orders(){
+$query = query("SELECT * FROM orders");
+confirm($query);
+while($row = fetch_array($query)) {
+$orders = <<<DELIMETER
+<tr>
+    <td>{$row['order_id']}</td>
+    <td>{$row['order_amount']}</td>
+    <td>{$row['order_transaction']}</td>
+    <td>{$row['order_currency']}</td>
+    <td>{$row['order_status']}</td>
+    <td><a class="btn btn-danger" href="html/php/includes/admin/delete_order.php?id={$row['order_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+</tr>
+DELIMETER;
+echo $orders;
+    }
+}
+/*********************************************General Product Functions******************/
+function last_id(){
+global $connection;
+return mysqli_insert_id($connection);
+}
 function order_count(){
     return mysql_result(mysql_query("SELECT COUNT(`order_id`) FROM `orders`"), 0);
 }
@@ -11,7 +95,7 @@ $query = query("SELECT * FROM categories WHERE `cat_main_id` = $cat_main_id ");
 confirm($query);
 while($row = fetch_array($query)) {
 $srt = strtoupper(str_replace(" ","_","{$row['cat_title']}"));
-echo '<li class="cp_btn"><a  class="active"onclick="return false" href="subr.php?id='.$row['cat_id'].'&names='.$srt.'">'.$row['cat_title'].' </a></li>';
+echo '<li class="cp_btn"><a  class="active"onclick="return false" href="subr?id='.$row['cat_id'].'&names='.$srt.'">'.$row['cat_title'].' </a></li>';
      }
 }
 function cat_count(){

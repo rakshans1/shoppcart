@@ -7,13 +7,13 @@
 
 
   $conn = mysqli_connect("localhost","root","","shoppcart") ;
-  $sub  = $product_data['sub'];
+  $sub  = $product_data['product_cat_id'];
   $p  = $product_data['pname'];
    if(! $conn )
    {
       die('Could not connect: ' . mysql_error());
    }
-   $sql = 'SELECT * FROM `products`  WHERE `sub` = \''.$sub.'\' AND `pname` != \''.$p.'\' ORDER BY RAND() LIMIT 0,6 ;';
+   $sql = 'SELECT * FROM `products`  WHERE `product_cat_id` = \''.$sub.'\' AND `pname` != \''.$p.'\' ORDER BY RAND() LIMIT 0,6 ;';
    $result = $conn->query($sql);
  if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {

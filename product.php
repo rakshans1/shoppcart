@@ -6,7 +6,7 @@ if (isset($_GET['product']) === true && empty($_GET['product']) === false) {
 	$productname = $_GET['product'];
 	if (product_exits($productname) === true) {
 		$p_id = product_id_from_productname($productname);
-		$product_data = product_data($p_id, 'p_id','pname','pprice','pimage','pdesc','pquant','sub');
+		$product_data = product_data($p_id, 'p_id','pname','pprice','pimage','pdesc','pquant','product_cat_id');
 	}else{
 		echo '<script type="text/javascript">window.location.href = \'404\';</script>';
 	}

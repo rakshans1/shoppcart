@@ -61,8 +61,6 @@ $(document).ready(function(){
 		});
 	});
 });
-
-
 /*Page Loading*/
 $(document).ready(function(){
  setTimeout(function(){     
@@ -71,7 +69,7 @@ $(document).ready(function(){
       $(this).addClass("active");
 	});	
          
-
+     	 
      	
 
      	$("li.cp_btn a ").click(function(){
@@ -81,6 +79,11 @@ $(document).ready(function(){
 			$('#content').load('sub.php?'+url);
 	        },100);
     	});
+    	/*$("li.cp_btn a ").click(function(){
+     	 	var page = $(this).attr('href');
+	         var url = page.split(/\?+/).pop();
+		        window.location.hash 'http://localhost:8089/subr.php?'+url;
+		    });*/
      	/*Account page*/
     	$("li.acc a ").click(function(){
 	         var page = $(this).attr('href');

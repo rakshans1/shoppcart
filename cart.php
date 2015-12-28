@@ -31,8 +31,6 @@ if (isset($_GET['delete'])) {
   unset($_SESSION['item_quantity']);
   unset($_SESSION['product_'. $_GET['delete']]);
   redirect("checkout");
-
-
  }
 function cart(){
 	$total = 0;
@@ -45,7 +43,7 @@ function cart(){
 		if ($value > 0) {
 		if (substr($name, 0, 8) == "product_") {
 			$length = strlen($name - 8);
-			$id = sanitize(substr($name, 8,$length));
+			$id = sanitize(substr($name, 8,$length)); 
 			$query = query("SELECT * FROM products WHERE p_id = $id");
 			confirm($query);
 			while($row = fetch_array($query)) {
@@ -86,13 +84,52 @@ DELIMETER;
 function show_paypal() {
 if(isset($_SESSION['item_quantity']) && $_SESSION['item_quantity'] >= 1) {
 $paypal_button = <<<DELIMETER
+	
     <input type="image" name="upload" border="0"
 src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
 alt="PayPal - The safer, easier way to pay online">
 DELIMETER;
 return $paypal_button;
   }
+} 
+function process_transaction(){
+	if(isset($_GET['tx'])) {
+	$amount = $_GET['amt'];
+	$currency = $_GET['cc'];
+	$transaction = $_GET['tx'];
+	$status = $_GET['st'];
+	$total = 0;
+	$item_quantity = 0;
+	foreach ($_SESSION as $name => $value) {
+		if ($value > 0) {
+		if (substr($name, 0, 8) == "product_") {
+			$length = strlen($name - 8);
+			$id = sanitize(substr($name, 8,$length));
+			$send_order = query("INSERT INTO orders (order_amount, order_transaction, order_currency, order_status ) VALUES('{$amount}', '{$transaction}','{$currency}','{$status}')");
+			$last_id =last_id();
+			confirm($send_order);
+			$query = query("SELECT * FROM products WHERE p_id = $id");
+			confirm($query);
+			while($row = fetch_array($query)) {
+			$pprice = $row['pprice'];
+			$sub	= $row['pprice']*$value;
+			$pprice = $row['pprice'];
+			$item_quantity +=$value;
+			$srt = strtoupper(str_replace("_"," ","{$row['pname']}"));
+			$insert_report = query("INSERT INTO reports (p_id,order_id,pname, pprice, pquant) VALUES('{$id}','{$last_id}','{$srt}','{$pprice}','{$value}')");
+			confirm($insert_report);	
+			}
+			$total += $sub;
+			$item_quantity;
+			unset($_SESSION['item_total']);
+ 		    unset($_SESSION['item_quantity']);
+			unset($_SESSION['product_'. $id]);
+   }
 }
-
+ }
+	} else {
+	redirect("/");
+	}
+}
 ?>
  

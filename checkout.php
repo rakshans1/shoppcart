@@ -1,4 +1,4 @@
-<?php require 'cart.php'; 
+<?php  require 'cart.php';
 protect_page();
 require 'html/php/includes/head.req.php'; 
 require 'html/php/includes/header.req.php';?>
@@ -14,7 +14,7 @@ require 'html/php/includes/header.req.php';?>
               display_message();
             echo '</div>';
             }?>
-<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 <input type="hidden" name="cmd" value="_cart">
 <input type="hidden" name="business" value="shoppcartcare@gmail.com">
 <input type="hidden" name="currency_code" value="US">

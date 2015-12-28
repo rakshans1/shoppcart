@@ -19,34 +19,28 @@ function display_message() {
         unset($_SESSION['message']);
     }
 }
+function escape_string($string){
+global $connection;
+return mysqli_real_escape_string($connection, $string);
+}
 /*********************************************Database Functions******************/
 function query($sql){
 	global $connection;
 	return mysqli_query($connection,$sql);
 }
 function confirm($result){
-
 global $connection;
-
 if(!$result) {
-
 die("QUERY FAILED " . mysqli_error($connection));
-
-
 	}
-
-
 }
 function fetch_array($result){
-
 return mysqli_fetch_array($result);
-
-
 }
 /*********************************************Login & Register Functions******************/
 function email($to,$subject,$message){
 	$from = "shoppcartcare@shoppcart.com";
-	$head = "From: $from\r\n" . "Content-type: text/html";
+	$head = "From: $from/r/n" . "Content-type: text/html";
 	mail($to, $subject, $message,$head);
 }
 function logged_in_redirect(){
@@ -71,7 +65,6 @@ function admin_protect(){
 function adminormoderate_protect(){
 	global $user_data;
 	if (has_access($user_data['user_id'],2) === true || has_access($user_data['user_id'],1) === true) {
-		
 	}else{
 		header('Location: /');
 		exit();
@@ -85,6 +78,16 @@ function sanitize($data){
 } 
 function output_errors($errors){
 	return '<ul><li>'.implode('</li><li><p class="lead">', $errors).'</p></li></ul>';
+}
+function uploads_dir($product_category_id){
+   $uploads_dir = 'images/uploads';
+   if ($product_category_id == 1) {
+   		$uploads_dir = 'images/fruitsandveggies/leafies/';
+   }
+   if ($product_category_id == 29) {
+   		$uploads_dir = 'images/beveragesandsyrups/syrupsandcordials/';
+   }
+   return $uploads_dir;
 }
 
 ?>

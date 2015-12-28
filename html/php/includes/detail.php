@@ -19,7 +19,7 @@
 					<p class="text-left"><strong><?php echo strtoupper ($srt); ?></strong></p>
 					<h2 class="text-left">Rs. <?php  echo $product_data['pprice'];?></h2>
 					<br>
-					<h3 class="text-left">Product category : <?php  echo strtoupper($product_data['sub']);?></h3>
+					<h3 class="text-left">Product category : <?php echo show_product_category_title($product_data['product_cat_id']);?></h3>
 					<br>
 					<div class="row">
                         <div class="col-xs-12">
