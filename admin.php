@@ -14,7 +14,7 @@ require 'html/php/includes/admin/content.php'; ?>
 <?php 
 
                 if($_SERVER['REQUEST_URI'] == "/admin" )  {
-
+                   
 
                     include("html/php/includes/admin/admin_content.php");
 

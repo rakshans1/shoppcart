@@ -68,9 +68,6 @@ $(document).ready(function(){
       $("a.active").removeClass("active");
       $(this).addClass("active");
 	});	
-         
-     	 
-     	
 
      	$("li.cp_btn a ").click(function(){
 	         var page = $(this).attr('href');

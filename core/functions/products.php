@@ -202,7 +202,7 @@ function add(){
     echo "hi";
 }
 function get_products() {
-$query = query(" SELECT * FROM products LIMIT 0,12 ;");
+$query = query(" SELECT * FROM products  ORDER BY RAND() LIMIT 0,12 ;");
 confirm($query);
 while($row = fetch_array($query)) {
 $srt = strtoupper(str_replace("_"," ","{$row['pname']}"));
@@ -213,7 +213,7 @@ $product1 = <<<DELIMETER
     <div class="product-image-wrapper">
         <div class="single-products">
                 <div class="productinfo text-center">
-                    <img class ="img-thumbnail " src="{$row['pimage']}"  alt="" />
+                    <img src="{$row['pimage']}"  alt="" />
                     <h2>&#8377; {$row['pprice']}</h2>
                     <p>$srt</p>
                     <div class="row">
@@ -333,3 +333,4 @@ echo $product2;
         }
 }
 ?>
+

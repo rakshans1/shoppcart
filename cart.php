@@ -100,14 +100,14 @@ function process_transaction(){
 	$status = $_GET['st'];
 	$total = 0;
 	$item_quantity = 0;
+	$send_order = query("INSERT INTO orders (order_amount, order_transaction, order_currency, order_status,order_user_id ) VALUES('{$amount}', '{$transaction}','{$currency}','{$status}','{$_SESSION['user_id']}')");
+	$last_id =last_id();
+	confirm($send_order);
 	foreach ($_SESSION as $name => $value) {
 		if ($value > 0) {
 		if (substr($name, 0, 8) == "product_") {
 			$length = strlen($name - 8);
 			$id = sanitize(substr($name, 8,$length));
-			$send_order = query("INSERT INTO orders (order_amount, order_transaction, order_currency, order_status ) VALUES('{$amount}', '{$transaction}','{$currency}','{$status}')");
-			$last_id =last_id();
-			confirm($send_order);
 			$query = query("SELECT * FROM products WHERE p_id = $id");
 			confirm($query);
 			while($row = fetch_array($query)) {
@@ -116,6 +116,9 @@ function process_transaction(){
 			$pprice = $row['pprice'];
 			$item_quantity +=$value;
 			$srt = strtoupper(str_replace("_"," ","{$row['pname']}"));
+			$new_quant = $row['pquant'] - $value; 
+			$update_product_quant =  query("UPDATE products SET pquant = '{$new_quant}' WHERE p_id =  {$id} ");
+			confirm($update_product_quant);
 			$insert_report = query("INSERT INTO reports (p_id,order_id,pname, pprice, pquant) VALUES('{$id}','{$last_id}','{$srt}','{$pprice}','{$value}')");
 			confirm($insert_report);	
 			}

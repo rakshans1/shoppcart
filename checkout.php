@@ -16,7 +16,7 @@ require 'html/php/includes/header.req.php';?>
             }?>
 <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 <input type="hidden" name="cmd" value="_cart">
-<input type="hidden" name="business" value="shoppcartcare@gmail.com">
+<input type="hidden" name="business" value="shoppcart@gmail.com">
 <input type="hidden" name="currency_code" value="US">
     <table class="table table-striped">
         <thead>
