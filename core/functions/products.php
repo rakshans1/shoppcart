@@ -1,4 +1,92 @@
 <?php
+/*************************Reports in admin ********************/
+function get_reports(){
+$query = query(" SELECT * FROM reports");
+confirm($query);
+while($row = fetch_array($query)) {
+$report = <<<DELIMETER
+        <tr>
+             <td>{$row['report_id']}</td>
+            <td>{$row['p_id']}</td>
+            <td>{$row['order_id']}</td>
+            <td>{$row['pprice']}</td>
+            <td>{$row['pname']}
+            <td>{$row['pquant']}</td>
+            <td><a class="btn btn-danger" href="html/php/includes/admin/delete_report.php?id={$row['report_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+DELIMETER;
+echo $report;
+        }
+}
+/*************************Categories in admin ********************/
+function show_categories_in_admin() {
+$category_query = query("SELECT * FROM categories");
+confirm($category_query);
+while($row = fetch_array($category_query)) {
+$cat_id = $row['cat_id'];
+$cat_title = $row['cat_title'];
+$cat_main_id = $row['cat_main_id'];
+$category = <<<DELIMETER
+<tr>
+    <td>{$cat_id}</td>
+    <td>{$cat_title}</td>
+    <td>{$cat_main_id}</td>
+    <td><a class="btn btn-danger" href="html/php/includes/admin/delete_category?id={$row['cat_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+</tr>
+DELIMETER;
+echo $category;
+    }
+}
+function add_category() {
+if(isset($_POST['add_category'])) {
+$cat_title = escape_string($_POST['cat_title']);
+$cat_main_id = escape_string((int)$_POST['cat_main_id']);
+if(empty($cat_title) || $cat_title == " " && empty($cat_main_id) || $cat_main_id == " ") {
+echo "<p class='bg-danger'>THIS CANNOT BE EMPTY</p>";
+} else {
+$insert_cat = query("INSERT INTO categories(cat_title,cat_main_id) VALUES('{$cat_title}','{$cat_main_id}') ");
+confirm($insert_cat);
+set_message("Category Created");
+    }
+    }
+}
+/***************************updating product code ***********************/
+function update_product() {
+if(isset($_POST['update']) && empty($_POST['update']) === false) {
+$product_title          = escape_string($_POST['product_title']);
+$srt                    = (str_replace(" ","_","{$product_title}"));
+$product_category_id    = escape_string($_POST['product_category_id']);
+$product_price          = escape_string($_POST['product_price']);
+$product_description    = escape_string($_POST['product_description']);
+$product_quantity       = escape_string($_POST['product_quantity']);
+$product_image          = escape_string($_FILES['file']['name']);
+$image_temp_location    = $_FILES['file']['tmp_name'];
+if(empty($product_image)) {
+$get_pic = query("SELECT pimage FROM products WHERE p_id =" .escape_string($_GET['id']). " ");
+confirm($get_pic);
+while($pic = fetch_array($get_pic)) {
+$product_image = $pic['pimage'];
+$uploads_dirs = $product_image;
+    }
+}else{
+$uploads_dir = uploads_dir($product_category_id );
+$uploads_dirs = $uploads_dir. $product_image;
+move_uploaded_file($image_temp_location  ,$uploads_dirs);
+}
+$query = "UPDATE products SET ";
+$query .= "pname                    = '{$srt}'                  , ";
+$query .= "product_cat_id           = '{$product_category_id}'  , ";
+$query .= "pprice                   = '{$product_price}'        , ";
+$query .= "pdesc                    = '{$product_description}'  , ";
+$query .= "pquant                   = '{$product_quantity}'     , ";
+$query .= "pimage                   = '{$uploads_dirs}'           ";
+$query .= "WHERE p_id=" . escape_string($_GET['id']);
+$send_update_query = query($query);
+confirm($query);
+redirect("admin?products");
+set_message("Product has been updated <a href=".$product_title." target=\"_blank\">View Product</a>");
+        }
+}
 /***************************Add Products in admin********************/
 function add_product() {
 if(isset($_POST['publish']) && empty($_POST['publish']) === false) {
@@ -32,7 +120,7 @@ echo $categories_options;
 }
 /************************ Admin Products Page ********************/
 function get_products_in_admin(){
-$query = query(" SELECT * FROM products ORDER BY p_id DESC");
+$query = query(" SELECT * FROM products  ORDER BY p_id DESC");
 confirm($query);
 while($row = fetch_array($query)) {
 $category = show_product_category_title($row['product_cat_id']);
@@ -61,6 +149,14 @@ while($category_row = fetch_array($category_query)) {
 return $category_row['cat_title'];
 }
 }
+function show_product_category_main_id($product_category_id){
+$category_query = query("SELECT * FROM categories WHERE cat_id = '{$product_category_id}' ");
+confirm($category_query);
+while($category_row = fetch_array($category_query)) {
+return $category_row['cat_main_id'];
+}
+}
+
 function display_orders(){
 $query = query("SELECT * FROM orders");
 confirm($query);

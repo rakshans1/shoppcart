@@ -1,4 +1,43 @@
 <?php 
+/************************admin users***********************/
+function display_users() {
+$category_query = query("SELECT * FROM users");
+confirm($category_query);
+while($row = fetch_array($category_query)) {
+$user_id = $row['user_id'];
+$username = $row['username'];
+$first_name = $row['first_name'];
+$email = $row['email'];
+$active = $row['active'];
+$type = $row['type'];
+$user = <<<DELIMETER
+<tr>
+    <td>{$user_id}</td>
+    <td>{$username}</td>
+    <td>{$first_name}</td>
+     <td>{$email}</td>
+     <td>{$active}</td>
+     <td>{$type}</td>
+     <td><a class="btn btn-warning" href="/admin?edit_user&id={$row['user_id']}"><span class="glyphicon glyphicon glyphicon-pencil"></span></a></td>
+    <td><a class="btn btn-danger" href="html/php/includes/admin/delete_user.php?id={$row['user_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+</tr>
+DELIMETER;
+echo $user;
+    }
+}
+function update_user_admin() {
+if(isset($_POST['update_user']) && empty($_POST['update_user']) === false) {
+$active  = escape_string($_POST['active']);
+$type    = escape_string($_POST['type']);
+$query = "UPDATE users SET ";
+$query .= "active  = '{$active}', ";
+$query .= "type    = '{$type} '   ";
+$query .= " WHERE user_id =" . escape_string($_GET['id']);
+$send_update_user = query($query);
+confirm($query);
+set_message("User has been updated ");
+        }
+}
 /*********************************************user access Functions******************/
 function has_access($user_id,$type){
 	$user_id = (int)$user_id;

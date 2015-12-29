@@ -80,14 +80,28 @@ function output_errors($errors){
 	return '<ul><li>'.implode('</li><li><p class="lead">', $errors).'</p></li></ul>';
 }
 function uploads_dir($product_category_id){
-   $uploads_dir = 'images/uploads';
-   if ($product_category_id == 1) {
-   		$uploads_dir = 'images/fruitsandveggies/leafies/';
-   }
-   if ($product_category_id == 29) {
-   		$uploads_dir = 'images/beveragesandsyrups/syrupsandcordials/';
-   }
+	 $title =  show_product_category_title($product_category_id);
+	 $main  =  show_product_category_main_id($product_category_id);
+	 $title =  strtolower(str_replace(" ", "_", $title ));
+	 $uploads_dir = 'images/products/'.$main.'/'.$title.'/';
    return $uploads_dir;
+}
+function to_create_cat_dir(){
+$query = query("SELECT * FROM categories");
+confirm($query);
+while($row = fetch_array($query)) {
+$main =  $row['cat_main_id'];
+$title =  $row['cat_title'];
+$title =  strtolower(str_replace(" ", "_", $title ));
+$structure ='images/products/'.$main.'/'.$title.'' ;
+if (!mkdir($structure, 0777, true)) {
+    die('Failed to create folders...');
+}else{
+	echo "Success";
+}
+
+
+  }
 }
 
 ?>

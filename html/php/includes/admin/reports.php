@@ -1,10 +1,12 @@
-
-<h1 class="page-header">
-   All Products
-
-</h1>
-
-<h3 class="bg-success"><?php display_message(); ?></h3>
+<h1 class="page-header">Reports</h1>
+<?php
+            if (!empty($_SESSION['message'])) { 
+              
+            echo '<div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+              display_message();
+            echo '</div>';
+            }?>
 <table class="table table-hover">
 
 
