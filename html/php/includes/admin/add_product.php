@@ -29,7 +29,7 @@ if(isset($_POST['publish']) && empty($_POST['publish']) === false) {
 <div class="col-md-8">
 <div class="form-group">
     <label for="product-title">Product Title </label>
-        <input type="text" name="product_title" class="form-control" require>
+        <input type="text" name="product_title" class="form-control" required>
     </div>
     <div class="form-group">
            <label for="product-title">Product Description</label>
@@ -39,7 +39,7 @@ if(isset($_POST['publish']) && empty($_POST['publish']) === false) {
 
       <div class="col-xs-3">
         <label for="product-price">Product Price</label>
-        <input type="number" name="product_price" class="form-control" size="60" require>
+        <input type="number" name="product_price" class="form-control" size="60" required>
       </div>
     </div>
 </div><!--Main Content-->
@@ -61,7 +61,7 @@ if(isset($_POST['publish']) && empty($_POST['publish']) === false) {
     <!-- Product Brands-->
     <div class="form-group">
       <label for="product-title">Product Quantity</label>
-        <input type="number" name="product_quantity" class="form-control" require>
+        <input type="number" name="product_quantity" class="form-control" required>
     </div>
     <!-- Product Image -->
     <div class="form-group">

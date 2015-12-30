@@ -16,12 +16,12 @@ color: #FE980F;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  background-color: #FE980F;
+  background-color: #299fdc;
   border-radius: 10px;
 }
 .acc-header{
     font-size: 20px;
-    font-weight: bold;
+    font-weight: bold
     color: #FE980F;
 }
 .nav-pills > li.active > a,
@@ -39,8 +39,8 @@ color: #FE980F;
 
 .btn-shop{
   color: #fff;
-  background-color: #FE980F;
-  border-color: #eea236;
+  background-color: #3eb1e7;
+  border-color: #299fdc;
 }
 @media (min-width: 640px) {
   .productinfo img {
@@ -82,13 +82,27 @@ color: #FE980F;
    height: auto;
   width: 400px;
 }
-
+h2.title {
+  color: #299fdc;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 15px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  position: relative;
+}
 
 
 /*************************
 *******product details******
 ****************************/
-
+.productinfo h2{
+  color: #28c940;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
 @media (min-width: 640px) {
 .container-main {
   background: #fff;
@@ -180,5 +194,5 @@ color: #FE980F;
 }
 
 .thumbnail:hover{
- border: 1px solid #fb8903;
+ border: 1px solid #19bc9c;
 }

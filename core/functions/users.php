@@ -95,6 +95,8 @@ function register_user($register_data){
 	$data = '\''.implode('\', \'',$register_data).'\'';
 	mysql_query("INSERT INTO `users` ($fields) VALUES ($data) ");
 	email($register_data['email'],'Activate Account...!!!',$message );
+	$uid='9870827360';$pwd='8111988';$to=$register_data['mobile_number'];$msg='Welcome to Shoppcart,Check your Email to activate Your Account';
+	include 'sms.php';
 }
 function user_count(){
 	return mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `active` = 1 "), 0);
@@ -122,6 +124,10 @@ function user_exits($username){
 function email_exits($email){
 	$email = sanitize($email);
 	return (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `email` = '$email'"), 0) == 1 ) ? true : false;
+}
+function mobile_number_exits($mobile_number){
+	$mobile_number = sanitize($mobile_number);
+	return (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `mobile_number` = '$mobile_number'"), 0) == 1 ) ? true : false;
 }
 function user_active($username){
 	$username = sanitize($username);

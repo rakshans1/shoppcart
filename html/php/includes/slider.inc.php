@@ -20,6 +20,8 @@
                                     </p>
 
                                  <button type="button" class="btn btn-default get">Get it now</button>
+                                 <br>
+                                 <br>
                                 </div>
                                 <div class="col-sm-6">
                                     <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />

@@ -6,6 +6,10 @@ return header("Location: $location ");
 function previous(){
 return header("location:javascript://history.go(-1)");
 }
+function redirectjava($location){
+	echo '<script type="text/javascript">window.location.href= "'.$location.'";</script>';
+	echo 'window.location.href = '.$location.';';
+}
 function set_message($msg){
 if(!empty($msg)) {
 $_SESSION['message'] = $msg;
@@ -39,9 +43,9 @@ return mysqli_fetch_array($result);
 }
 /*********************************************Login & Register Functions******************/
 function email($to,$subject,$message){
-	$from = "shoppcartcare@shoppcart.com";
-	$head = "From: $from/r/n" . "Content-type: text/html";
-	mail($to, $subject, $message,$head);
+ $from = "shoppcartcare@shoppcart.com";
+ $head = "From: $from\r\n" . "Content-type: text/html";
+ mail($to, $subject, $message,$head);
 }
 function logged_in_redirect(){
 	if (logged_in()===true ){

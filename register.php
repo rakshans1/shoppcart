@@ -3,7 +3,7 @@
 logged_in_redirect();
 
  if (empty($_POST) === false) {
-    $required_fields = array('username','password','password_again','first_name','address','email');
+    $required_fields = array('username','password','password_again','first_name','address','email','mobile_number');
     foreach ($_POST as $key => $value) {
         if (empty($value) && in_array($key, $required_fields) === true) {
            $errors[] = 'Fields marked with an * are required';
@@ -25,7 +25,14 @@ logged_in_redirect();
                    } 
          if (email_exits($_POST['email'])===true) {
                       $errors[] = 'Sorry, The Email \''.$_POST['email'].'\' is already in use.';
-                   }          
+                   }   
+         if (mobile_number_exits($_POST['mobile_number'])===true) {
+                      $errors[] = 'Sorry, The Mobile Number \''.$_POST['mobile_number'].'\' is already in use.';
+                   }    
+         if (strlen($_POST['mobile_number'])>10 || strlen($_POST['mobile_number'])<10 ) {
+                 $errors[] ='Enter valid mobile number';
+              } 
+                                      
     }
 }
 ?>
@@ -79,11 +86,12 @@ logged_in_redirect();
         'email'         => $_POST['email'],
         'username'      => $_POST['username'],
         'password'      => $_POST['password'],
+        'mobile_number' => $_POST['mobile_number'],
         'email_code'     => md5($_POST['username']+ microtime())
         );
 
     register_user($register_data);
-    header('Location: ../index.php?sucess');
+    redirectjava('/?success');
     exit();
 
  }elseif(empty($errors)=== false){ ?>
@@ -101,28 +109,32 @@ logged_in_redirect();
     <div class="row">
     <div class="col-md-6">
     <div class="form-group">
-        <input type="text" name="first_name" class="form-control" placeholder="First Name*" require>
+        <input type="text" name="first_name" class="form-control" placeholder="First Name*" required>
     </div>
     <div class="form-group">
         <input type="text" name="last_name" class="form-control" placeholder="Last Name" >
     </div>
     
     <div class="form-group">
-        <input type="text" name="address" class="form-control" placeholder="Address*" require>
+        <input type="text" name="address" class="form-control" placeholder="Address*" required>
     </div>
     <div class="form-group">
-        <input type="email" name="email" class="form-control" placeholder="Email*" require>
+        <input type="email" name="email" class="form-control" placeholder="Email*" required>
     </div>
     </div><!--div col-->
     <div class="col-md-6">
-    <div class="form-group">
-        <input type="text" name="username" class="form-control" placeholder="Username*" require>
+    <div class="form-group input-group">
+        <div class="input-group-addon">+91</div>
+        <input type="number" maxlength="10" name="mobile_number" class="form-control" placeholder="Mobile Number*" required>
     </div>
     <div class="form-group">
-        <input type="password" name="password" class="form-control" placeholder="Password*" require>
+        <input type="text" name="username" class="form-control" placeholder="Username*" required>
     </div>
     <div class="form-group">
-        <input type="password" name="password_again" class="form-control" placeholder="Confirm Password*"require >
+        <input type="password" name="password" class="form-control" placeholder="Password*" required>
+    </div>
+    <div class="form-group">
+        <input type="password" name="password_again" class="form-control" placeholder="Confirm Password*" required >
     </div>
     </div><!--div col-->
 

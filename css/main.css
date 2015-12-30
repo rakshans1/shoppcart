@@ -53,7 +53,7 @@ a#scrollUp {
   bottom: 0px;
   right: 10px;
   padding: 5px 10px;
-  background: #FE980F;
+  background: #299fdc;
   color: #FFF;
   -webkit-animation: bounce 2s ease infinite;
   animation: bounce 2s ease infinite;
@@ -835,16 +835,7 @@ h2.title:before{
 }
 
 
-h2.title {
-  color: #FE980F;
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0 15px;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-  position: relative;
-}
+
 
 .product-image-wrapper{
 	border:1px solid #F7F7F5;
@@ -862,12 +853,7 @@ h2.title {
   right: 0;
 }
 
-.productinfo h2{
-	color: #FE980F;
-	font-family: 'Roboto', sans-serif;
-	font-size: 24px;
-	font-weight: 700;
-}
+
 .product-overlay h2{
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
@@ -1053,7 +1039,7 @@ h2.title {
 }
 
 .recommended-item-control i {
-  background: none repeat scroll 0 0 #FE980F;
+  background: none repeat scroll 0 0 #299fdc;
   color: #FFFFFF;
   font-size: 20px;
   padding: 4px 10px;

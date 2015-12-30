@@ -10,7 +10,7 @@
                     <div class="features_items "><!--features_items-->
                         
                     <div class="row">
-                            <?php include 'search.php'; ?>
+                            
                     </div>
                     
                             <div id="content" onload ="loading()">

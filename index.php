@@ -8,6 +8,8 @@ include 'html/php/includes/registersuccess.php'; //<!--This is registersuccess--
 
 include 'html/php/includes/activatesuccess.php'; //<!--This is activatesuccess-->
 
+include 'search.php';
+
 include 'html/php/includes/slider.inc.php'; //<!--This is Slider-->
 
 include 'html/php/includes/overall/body.php'; //<!--This is section-->
