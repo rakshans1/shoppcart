@@ -12,7 +12,6 @@
               display_message();
             echo '</div>';
             }?>
-                  
 <table class="table table-hover">
 
 
@@ -29,7 +28,7 @@
     <tbody>
 
       
-      <?php get_products_in_admin(); ?>
+      <?php get_products_in_moderate(); ?>
 
 
   </tbody>

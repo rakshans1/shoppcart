@@ -97,8 +97,20 @@ require 'html/php/includes/admin/content.php'; ?>
 
 
                 }
+                   if(isset($_GET['draft'])){
 
 
+                    include("html/php/includes/admin//draft.php");
+
+
+                } 
+                   if(isset($_GET['edit_draft'])){
+
+
+                    include("html/php/includes/admin//edit_draft.php");
+
+
+                }
 
 
 

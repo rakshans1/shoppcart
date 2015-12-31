@@ -1,9 +1,4 @@
-
-<h1 class="page-header text-center">
-   All Products
-
-</h1>
-
+<h1 class="page-header text-center">All Drafts Submitted By Moderators</h1>
 <?php
             if (!empty($_SESSION['message'])) { 
               
@@ -12,7 +7,6 @@
               display_message();
             echo '</div>';
             }?>
-                  
 <table class="table table-hover">
 
 
@@ -24,12 +18,13 @@
            <th>Category</th>
            <th>Price</th>
            <th>Quantity</th>
+           <th>Moderator Name</th>
       </tr>
     </thead>
     <tbody>
 
       
-      <?php get_products_in_admin(); ?>
+      <?php get_drafts_in_admin(); ?>
 
 
   </tbody>

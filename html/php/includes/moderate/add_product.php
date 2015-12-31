@@ -1,5 +1,5 @@
 <?php 
-if(isset($_POST['publish']) && empty($_POST['publish']) === false) {
+if(isset($_POST['draft']) && empty($_POST['draft']) === false) {
     $required_fields = array('product_title','product_category_id','product_price','product_description','product_quantity');
     foreach ($_POST as $key => $value) {
         if (empty($value) && in_array($key, $required_fields) === true) {
@@ -8,7 +8,7 @@ if(isset($_POST['publish']) && empty($_POST['publish']) === false) {
            break 1;
         }
     }if (empty($errors)===true) {
-      add_product(); 
+      add_product_moderate(); 
     }
 }
 
@@ -46,7 +46,7 @@ if(isset($_POST['publish']) && empty($_POST['publish']) === false) {
 <!-- SIDEBAR-->
 <aside id="admin_sidebar" class="col-md-4">
     <div class="form-group">
-        <input type="submit" name="publish" class="btn btn-success btn-lg" value="Publish">
+       <input type="submit" name="draft" class="btn btn-warning btn-lg" value="Draft">
     </div>
      <!-- Product Categories-->
     <div class="form-group">

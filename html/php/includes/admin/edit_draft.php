@@ -1,6 +1,6 @@
 <?php 
 if (isset($_GET['id'])) {
-  $query = query("SELECT * FROM products WHERE p_id = " . escape_string($_GET['id']) . " ");
+  $query = query("SELECT * FROM draft WHERE draft_id = " . escape_string($_GET['id']) . " ");
   confirm($query);
 
 while($row = fetch_array($query)) {
@@ -13,12 +13,12 @@ $product_quantity       = escape_string($row['pquant']);
 $product_image          = escape_string($row['pimage']);
     }
 $srt = strtoupper(str_replace("_"," ","{$product_title}"));    
-update_product();
+draft_product();
 }
 ?>
 <div class="row">
 <div class="col-md-12">
-<h1 class="page-header text-center">Edit Product </h1>
+<h1 class="page-header text-center">Edit Draft</h1>
 <form action="" method="post" enctype="multipart/form-data">
 <div class="col-md-8">
 
@@ -61,7 +61,8 @@ update_product();
 
      
      <div class="form-group">
-        <input type="submit" name="update" class="btn btn-success btn-lg" value="Update">
+     
+        <input type="submit" name="publish_draft" class="btn btn-success btn-lg" value="Publish">
     </div>
 
 

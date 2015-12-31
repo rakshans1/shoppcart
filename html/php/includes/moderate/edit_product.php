@@ -13,7 +13,7 @@ $product_quantity       = escape_string($row['pquant']);
 $product_image          = escape_string($row['pimage']);
     }
 $srt = strtoupper(str_replace("_"," ","{$product_title}"));    
-update_product();
+update_product_moderate();
 }
 ?>
 <div class="row">

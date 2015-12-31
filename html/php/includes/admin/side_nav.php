@@ -24,6 +24,9 @@
         <li class="<?php if(isset($_GET['users'])){ echo 'active'; }?>">
             <a  href="admin?users"><i class="fa fa-fw fa-user"></i> Users</a>
         </li>
+        <li class="<?php if(isset($_GET['draft'])){ echo 'active'; }?>">
+            <a  href="admin?draft"><i class="fa fa-fw fa-floppy-o"></i> Drafts <span class="badge"><?php echo draft_count();?></span></a>
+        </li>
     
     </ul>
 </div>

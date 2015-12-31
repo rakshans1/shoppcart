@@ -1,4 +1,196 @@
 <?php
+/************************ Admin Draft Page ********************/
+function draft_product() {
+if(isset($_POST['publish_draft']) && empty($_POST['publish_draft']) === false) {
+$product_title          = escape_string($_POST['product_title']);
+$srt                    = (str_replace(" ","_","{$product_title}"));
+$product_category_id    = escape_string($_POST['product_category_id']);
+$product_price          = escape_string($_POST['product_price']);
+$product_description    = escape_string($_POST['product_description']);
+$product_quantity       = escape_string($_POST['product_quantity']);
+$product_image          = escape_string($_FILES['file']['name']);
+$image_temp_location    = $_FILES['file']['tmp_name'];
+if(empty($product_image)) {
+$get_pic = query("SELECT pimage FROM draft WHERE draft_id =" .escape_string($_GET['id']). " ");
+confirm($get_pic);
+while($pic = fetch_array($get_pic)) {
+$product_image = $pic['pimage'];
+$uploads_dir = uploads_dir($product_category_id );
+$products_image = basename($product_image);
+$uploads_dirs = $uploads_dir. $products_image;
+rename($product_image  ,$uploads_dirs);
+    }
+}else{
+$uploads_dir = uploads_dir($product_category_id );
+$uploads_dirs = $uploads_dir. $product_image;
+move_uploaded_file($image_temp_location  ,$uploads_dirs);
+}
+$send_draft_query = query("INSERT INTO products(pname, product_cat_id, pprice, pdesc, pquant, pimage) VALUES('{$srt}', '{$product_category_id}', '{$product_price}', '{$product_description}', '{$product_quantity}', '{$uploads_dirs}')");
+confirm($send_draft_query);
+$log = query("INSERT INTO log (pname, moderate_name) SELECT pname, moderate_name FROM draft WHERE draft_id = " . escape_string($_GET['id']) . "  ");
+confirm($log);
+$draft = query("DELETE FROM draft WHERE draft_id = " . escape_string($_GET['id']) . " ");
+confirm($draft);
+redirect("admin?draft");
+set_message("New Product was Added <a href=".$srt." target=\"_blank\">View Product</a>");
+        }
+}
+
+
+function get_drafts_in_admin(){
+$query = query(" SELECT * FROM draft ");
+confirm($query);
+while($row = fetch_array($query)) {
+$category = show_product_category_title($row['product_cat_id']);
+$srt = strtoupper(str_replace("_"," ","{$row['pname']}"));
+$product_image = $row['pimage'];
+$product = <<<DELIMETER
+        <tr>
+            <td>{$row['draft_id']}</td>
+            <td>{$srt}</a><br>
+             <img width='100' src="$product_image" alt="">
+            </td>
+            <td>{$category}</td>
+            <td>{$row['pprice']}</td>
+            <td>{$row['pquant']}</td>
+            <td>{$row['moderate_name']}</td>
+             <td><a class="btn btn-warning" href="/admin?edit_draft&id={$row['draft_id']}"><span class="glyphicon glyphicon glyphicon-pencil"></span></a></td>
+             <td><a class="btn btn-danger" href="html/php/includes/admin/delete_draft?id={$row['draft_id']}&i={$row['pimage']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+DELIMETER;
+echo $product;
+        }
+}
+/***************************Add Products in Moderate********************/
+function add_product_moderate() {
+global $user_data;    
+if(isset($_POST['draft']) && empty($_POST['draft']) === false) {
+$product_title          = escape_string($_POST['product_title']);
+$srt                    = (str_replace(" ","_","{$product_title}"));
+$product_category_id    = escape_string($_POST['product_category_id']);
+$product_price          = escape_string($_POST['product_price']);
+$product_description    = escape_string($_POST['product_description']);
+$product_quantity       = escape_string($_POST['product_quantity']);
+$product_image          = escape_string($_FILES['file']['name']);
+$image_temp_location    = $_FILES['file']['tmp_name'];
+$uploads_dir = 'images/uploads/';
+$uploads_dirs = $uploads_dir. $product_image;
+move_uploaded_file($image_temp_location  ,$uploads_dirs);
+$query = query("INSERT INTO draft(pname, product_cat_id, pprice, pdesc, pquant, pimage, moderate_name) VALUES('{$srt}', '{$product_category_id}', '{$product_price}', '{$product_description}', '{$product_quantity}', '{$uploads_dirs}', '{$user_data['username']}')");
+confirm($query);
+set_message("New Product submited, It will be published once reviewed by Admin...!!!");
+
+        }
+}
+/***************************updating product code Moderate***********************/
+function update_product_moderate() {
+if(isset($_POST['update']) && empty($_POST['update']) === false) {
+$product_title          = escape_string($_POST['product_title']);
+$srt                    = (str_replace(" ","_","{$product_title}"));
+$product_category_id    = escape_string($_POST['product_category_id']);
+$product_price          = escape_string($_POST['product_price']);
+$product_description    = escape_string($_POST['product_description']);
+$product_quantity       = escape_string($_POST['product_quantity']);
+$product_image          = escape_string($_FILES['file']['name']);
+$image_temp_location    = $_FILES['file']['tmp_name'];
+if(empty($product_image)) {
+$get_pic = query("SELECT pimage FROM products WHERE p_id =" .escape_string($_GET['id']). " ");
+confirm($get_pic);
+while($pic = fetch_array($get_pic)) {
+$product_image = $pic['pimage'];
+$uploads_dirs = $product_image;
+    }
+}else{
+$uploads_dir = uploads_dir($product_category_id );
+$uploads_dirs = $uploads_dir. $product_image;
+move_uploaded_file($image_temp_location  ,$uploads_dirs);
+}
+$query = "UPDATE products SET ";
+$query .= "pname                    = '{$srt}'                  , ";
+$query .= "product_cat_id           = '{$product_category_id}'  , ";
+$query .= "pprice                   = '{$product_price}'        , ";
+$query .= "pdesc                    = '{$product_description}'  , ";
+$query .= "pquant                   = '{$product_quantity}'     , ";
+$query .= "pimage                   = '{$uploads_dirs}'           ";
+$query .= "WHERE p_id=" . escape_string($_GET['id']);
+$send_update_query = query($query);
+confirm($query);
+redirect("moderate?products");
+set_message("Product has been updated <a href=".$product_title." target=\"_blank\">View Product</a>");
+        }
+}
+/*************************Reports in Moderate ********************/
+function get_reports_moderate(){
+$query = query(" SELECT * FROM reports");
+confirm($query);
+while($row = fetch_array($query)) {
+$report = <<<DELIMETER
+        <tr>
+             <td>{$row['report_id']}</td>
+            <td>{$row['p_id']}</td>
+            <td>{$row['order_id']}</td>
+            <td>{$row['pprice']}</td>
+            <td>{$row['pname']}
+            <td>{$row['pquant']}</td>
+        </tr>
+DELIMETER;
+echo $report;
+        }
+}
+/************************ Moderate Products Page ********************/
+function get_products_in_moderate(){
+$query = query(" SELECT * FROM products  ORDER BY p_id DESC");
+confirm($query);
+while($row = fetch_array($query)) {
+$category = show_product_category_title($row['product_cat_id']);
+$srt = strtoupper(str_replace("_"," ","{$row['pname']}"));
+$product_image = $row['pimage'];
+$product = <<<DELIMETER
+        <tr>
+            <td>{$row['p_id']}</td>
+            <td><a href="{$row['pname']}" target="_blank">{$srt}</a><br>
+             <img width='100' src="$product_image" alt="">
+            </td>
+            <td>{$category}</td>
+            <td>{$row['pprice']}</td>
+            <td>{$row['pquant']}</td>
+             <td><a class="btn btn-warning" href="/moderate?edit_product&id={$row['p_id']}"><span class="glyphicon glyphicon glyphicon-pencil"></span></a></td>
+        </tr>
+DELIMETER;
+echo $product;
+        }
+}
+function show_product_category_title_moderate($product_category_id){
+$category_query = query("SELECT * FROM categories WHERE cat_id = '{$product_category_id}' ");
+confirm($category_query);
+while($category_row = fetch_array($category_query)) {
+return $category_row['cat_title'];
+}
+}
+function show_product_category_main_id_moderate($product_category_id){
+$category_query = query("SELECT * FROM categories WHERE cat_id = '{$product_category_id}' ");
+confirm($category_query);
+while($category_row = fetch_array($category_query)) {
+return $category_row['cat_main_id'];
+}
+}
+
+function display_orders_moderate(){
+$query = query("SELECT * FROM orders");
+confirm($query);
+while($row = fetch_array($query)) {
+$orders = <<<DELIMETER
+<tr>
+    <td>{$row['order_id']}</td>
+    <td>{$row['order_amount']}</td>
+    <td>{$row['order_transaction']}</td>
+    <td>{$row['order_currency']}</td>
+    <td>{$row['order_status']}</td>
+</tr>
+DELIMETER;
+echo $orders;
+    }
+}
 /*************************Reports in admin ********************/
 function get_reports(){
 $query = query(" SELECT * FROM reports");
@@ -50,7 +242,7 @@ set_message("Category Created");
     }
     }
 }
-/***************************updating product code ***********************/
+/***************************updating product code Admin***********************/
 function update_product() {
 if(isset($_POST['update']) && empty($_POST['update']) === false) {
 $product_title          = escape_string($_POST['product_title']);
@@ -184,6 +376,9 @@ function order_count(){
 }
 function product_count(){
     return mysql_result(mysql_query("SELECT COUNT(`p_id`) FROM `products`"), 0);
+}
+function draft_count(){
+    return mysql_result(mysql_query("SELECT COUNT(`draft_id`) FROM `draft`"), 0);
 }
 /*********************************************Category Functions******************/
 function get_categories($cat_main_id){
