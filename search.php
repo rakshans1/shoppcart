@@ -33,6 +33,7 @@ if (isset($_POST['keywords'])) {
 	$results = "SELECT `p_id`,`pname`,`pprice`,`pimage` FROM `products` WHERE  $where";
 	$cat = "SELECT `cat_id` FROM `categories` WHERE  $wheres";
 	$cats = query($cat);
+	$cat_id = "0";
 	while($row = $cats->fetch_assoc()) {
     	$cat_id = $row["cat_id"];
 	}
@@ -55,7 +56,7 @@ if (isset($_POST['keywords'])) {
 	echo '</div>';
 }
 	if ($cat_result->num_rows > 0) {
-    echo '<div class="row"><h2 class="title text-center">Your Searched Items From Categories</h2>
+    echo '<div class="row"><h2 class="title text-center">Items Related to your search</h2>
     	<p class="text-center">Your Search for <strong>'.$word.'</strong> returned <strong>'.$cat_results_num.'</strong> results</p></div>';
 
     while($row = $cat_result->fetch_assoc()) {

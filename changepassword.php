@@ -38,7 +38,7 @@ require 'html/php/includes/header.req.php'; ?>
                 <h4>My Stuff</h4>
                     <ul class="nav nav-pills  nav-stacked ">
                         <li class=" "><a class=""  href="wishlist">My Wishlist</a></li>
-                        <li class=" "><a class=""  href="cart">My Cart</a></li>
+                        <li class=" "><a class=""  href="checkout">My Cart</a></li>
                     </ul>
                     <img src="images/home/line.png" class="line">   
                 <h4>Settings</h4>

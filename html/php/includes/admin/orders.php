@@ -18,7 +18,7 @@
           <tr>
                <th>Order id</th>
                <th>Amount</th>
-               <th>Transaction</th>
+               <th>Transaction id</th>
                <th>Currency</th>
                <th>Status</th>
           </tr>

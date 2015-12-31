@@ -1,4 +1,38 @@
 <?php 
+/************************users order function***********************/
+function display_orders_user(){
+global $session_user_id;
+$query = query("SELECT * FROM orders WHERE order_user_id = $session_user_id");
+confirm($query);
+while($row = fetch_array($query)) {
+$orders = <<<DELIMETER
+<tr>
+    <td>{$row['order_id']}</td>
+    <td>{$row['order_transaction']}</td>
+    <td>{$row['order_amount']}</td>
+    <td>{$row['order_status']}</td>
+    <td><a class="btn btn-shop" href="report?oi={$row['order_id']}"><i class="fa fa-eye"></i></a></td>
+</tr>
+DELIMETER;
+echo $orders;
+    }
+}
+function get_reports_user(){
+global $order_id;	
+$query = query("SELECT * FROM reports WHERE order_id = $order_id");
+confirm($query);
+while($row = fetch_array($query)) {
+$report = <<<DELIMETER
+        <tr>
+            <td>{$row['order_id']}</td>
+            <td><a href="{$row['pname']}" target="_blank">{$row['pname']}</a></td>
+            <td>{$row['pprice']}</td>
+            <td>{$row['pquant']}</td>
+        </tr>
+DELIMETER;
+echo $report;
+        }
+}
 /************************admin users***********************/
 function display_users() {
 $category_query = query("SELECT * FROM users");
@@ -18,12 +52,18 @@ $user = <<<DELIMETER
      <td>{$email}</td>
      <td>{$active}</td>
      <td>{$type}</td>
-     <td><a class="btn btn-warning" href="/admin?edit_user&id={$row['user_id']}"><span class="glyphicon glyphicon glyphicon-pencil"></span></a></td>
+DELIMETER;
+echo $user;
+ 
+$user1 = <<<DELIMETER
+	<td><a class="btn btn-warning" href="/admin?edit_user&id={$row['user_id']}"><span class="glyphicon glyphicon glyphicon-pencil"></span></a></td>
     <td><a class="btn btn-danger" href="html/php/includes/admin/delete_user.php?id={$row['user_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
 </tr>
 DELIMETER;
-echo $user;
-    }
+    if ($row['user_id'] != 1) {
+    	echo $user1;
+	}
+  }
 }
 function update_user_admin() {
 if(isset($_POST['update_user']) && empty($_POST['update_user']) === false) {

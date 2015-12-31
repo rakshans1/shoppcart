@@ -1,8 +1,9 @@
 a {
 color: #FE980F; 
 }
-.panel-warning {
-  border-color: #FE980F;
+.panel-warning .category-products {
+  
+  border-color: #FE980F; 
   border-width: 1px;
 }
 .badge {
@@ -16,7 +17,7 @@ color: #FE980F;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  background-color: #299fdc;
+  background-color: #0f75fe;
   border-radius: 10px;
 }
 .acc-header{
@@ -27,8 +28,8 @@ color: #FE980F;
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #777;
-  background-color: #fff;
+  color: #fff;
+  background-color: #FE980F;
 }
 
 .loader{
@@ -37,9 +38,14 @@ color: #FE980F;
 	z-index: 9999;
 }
 
+.btn-shop:hover{
+  color: #000000;
+  background-color: #0f75fe;
+  border-color: #299fdc;
+}
 .btn-shop{
   color: #fff;
-  background-color: #3eb1e7;
+  background-color: #299fdc;
   border-color: #299fdc;
 }
 @media (min-width: 640px) {
@@ -83,7 +89,7 @@ color: #FE980F;
   width: 400px;
 }
 h2.title {
-  color: #299fdc;
+  color: #0f75fe;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -196,3 +202,5 @@ h2.title {
 .thumbnail:hover{
  border: 1px solid #19bc9c;
 }
+
+
