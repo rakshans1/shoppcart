@@ -22,6 +22,7 @@ global $order_id;
 $query = query("SELECT * FROM reports WHERE order_id = $order_id");
 confirm($query);
 while($row = fetch_array($query)) {
+	if ($row['report_user_id'] == $_SESSION['user_id']) {
 $report = <<<DELIMETER
         <tr>
             <td>{$row['order_id']}</td>
@@ -31,7 +32,10 @@ $report = <<<DELIMETER
         </tr>
 DELIMETER;
 echo $report;
-        }
+			}else{
+				redirectjava('/');
+			}
+   }
 }
 /************************admin users***********************/
 function display_users() {

@@ -6,7 +6,7 @@
 <?php
 
 
-  $conn = mysqli_connect("localhost","root","","shoppcart") ;
+  $conn = $connection;
   $sub  = $product_data['product_cat_id'];
   $p  = $product_data['pname'];
    if(! $conn )

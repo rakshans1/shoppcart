@@ -13,9 +13,7 @@ if (empty($_POST) === false) {
     	if (email_exits($_POST['email']) === true && $user_data['email'] != $_POST['email'] ){
 				$errors[] = 'Sorry, The Email \''.$_POST['email'].'\' is already in use.';
 			}
-        if (mobile_number_exits($_POST['mobile_number'])===true) {
-                      $errors[] = 'Sorry, The Mobile Number \''.$_POST['mobile_number'].'\' is already in use.';
-                   }    
+            
          if (strlen($_POST['mobile_number'])>10 || strlen($_POST['mobile_number'])<10 ) {
                  $errors[] ='Enter valid mobile number';
               }     

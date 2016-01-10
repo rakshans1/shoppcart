@@ -6,7 +6,7 @@
 <?php
 
 
-  $conn = mysqli_connect("localhost","root","","shoppcart") ;
+  $conn = $connection;
    
    if(! $conn )
    {

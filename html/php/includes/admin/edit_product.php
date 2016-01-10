@@ -106,7 +106,9 @@ update_product();
     <div class="form-group">
         <label for="product-title">Product Image</label>
         <input type="file" name="file" ><br>
+        <p><?php echo basename($product_image); ?></p>
         <img width='150' src="<?php echo $product_image; ?>" alt="">
+
       
     </div>
 

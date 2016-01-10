@@ -18,6 +18,9 @@ require 'html/php/includes/header.req.php';?>
 <input type="hidden" name="cmd" value="_cart">
 <input type="hidden" name="business" value="shoppcart@gmail.com">
 <input type="hidden" name="currency_code" value="US">
+<input type="hidden" name="return" value="http://shoppcart.ddns.net/thank_you">
+<input type="hidden" name="notify_url" value="http://shoppcart.ddns.net/paypal">
+
     <table class="table table-striped">
         <thead>
           <tr>

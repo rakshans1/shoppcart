@@ -92,12 +92,11 @@ DELIMETER;
 return $paypal_button;
   }
 } 
-function process_transaction(){
-	if(isset($_GET['tx'])) {
-	$amount = $_GET['amt'];
-	$currency = $_GET['cc'];
-	$transaction = $_GET['tx'];
-	$status = $_GET['st'];
+function process_transaction($payment_amount,$payment_currency,$txn_id,$payment_status){
+	$amount 		=	$payment_amount;
+	$currency 		= 	$payment_currency;
+	$transaction	= 	$txn_id;
+	$status 		=  	$payment_status;
 	$total = 0;
 	$item_quantity = 0;
 	$send_order = query("INSERT INTO orders (order_amount, order_transaction, order_currency, order_status,order_user_id ) VALUES('{$amount}', '{$transaction}','{$currency}','{$status}','{$_SESSION['user_id']}')");
@@ -119,20 +118,60 @@ function process_transaction(){
 			$new_quant = $row['pquant'] - $value; 
 			$update_product_quant =  query("UPDATE products SET pquant = '{$new_quant}' WHERE p_id =  {$id} ");
 			confirm($update_product_quant);
-			$insert_report = query("INSERT INTO reports (p_id,order_id,pname, pprice, pquant) VALUES('{$id}','{$last_id}','{$srt}','{$pprice}','{$value}')");
+			$insert_report = query("INSERT INTO reports (p_id,order_id,pname, pprice, pquant,report_user_id) VALUES('{$id}','{$last_id}','{$srt}','{$pprice}','{$value}','{$_SESSION['user_id']}')");
 			confirm($insert_report);	
 			}
 			$total += $sub;
 			$item_quantity;
-			unset($_SESSION['item_total']);
- 		    unset($_SESSION['item_quantity']);
-			unset($_SESSION['product_'. $id]);
    }
 }
  }
-	} else {
-	redirect("/");
-	}
+	
+}
+function thank(){
+	$total = 0;
+	$item_quantity = 0;
+	$item_name = 1;
+	$item_number =1;
+	$amount = 1;
+	$quantity =1;
+	foreach ($_SESSION as $name => $value) {
+		if ($value > 0) {
+		if (substr($name, 0, 8) == "product_") {
+			$length = strlen($name - 8);
+			$id = sanitize(substr($name, 8,$length)); 
+			$query = query("SELECT * FROM products WHERE p_id = $id");
+			confirm($query);
+			while($row = fetch_array($query)) {
+			$sub	= $row['pprice']*$value;
+			$item_quantity +=$value;
+			$srt = strtoupper(str_replace("_"," ","{$row['pname']}"));
+			$product = <<<DELIMETER
+				<tr>
+				  <td><div class=row><div class=col-md-3><img width='50' src='{$row['pimage']}'>
+				  </div><div class=col-sm-9><strong>$srt</strong><br>
+				  </div>
+				  </div>
+				  </td>
+				  <td>&#8377; {$row['pprice']}</td>
+				  <td>{$value}</td>
+				  <td>&#8377; $sub</td>
+				  </tr>
+DELIMETER;
+			echo $product;	
+			$item_name++;
+			$item_number++;
+			$amount++;
+			$quantity++;
+		
+			}
+			$_SESSION['item_total'] = $total += $sub;
+			$_SESSION['item_quantity'] = $item_quantity;
+   }
+}
+ }
+}
+function verifyWithPayPal($tx,$at){
 }
 ?>
  

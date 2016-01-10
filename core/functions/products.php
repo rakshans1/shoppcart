@@ -116,7 +116,7 @@ $query .= "WHERE p_id=" . escape_string($_GET['id']);
 $send_update_query = query($query);
 confirm($query);
 redirect("moderate?products");
-set_message("Product has been updated <a href=".$product_title." target=\"_blank\">View Product</a>");
+set_message("Product has been updated <a href=".$srt." target=\"_blank\">View Product</a>");
         }
 }
 /*************************Reports in Moderate ********************/
@@ -276,7 +276,7 @@ $query .= "WHERE p_id=" . escape_string($_GET['id']);
 $send_update_query = query($query);
 confirm($query);
 redirect("admin?products");
-set_message("Product has been updated <a href=".$product_title." target=\"_blank\">View Product</a>");
+set_message("Product has been updated <a href=".$srt." target=\"_blank\">View Product</a>");
         }
 }
 /***************************Add Products in admin********************/
