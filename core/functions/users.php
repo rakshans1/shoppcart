@@ -1,4 +1,4 @@
-<?php 
+<?php
 /************************users order function***********************/
 function display_orders_user(){
 global $session_user_id;
@@ -18,7 +18,7 @@ echo $orders;
     }
 }
 function get_reports_user(){
-global $order_id;	
+global $order_id;
 $query = query("SELECT * FROM reports WHERE order_id = $order_id");
 confirm($query);
 while($row = fetch_array($query)) {
@@ -58,7 +58,7 @@ $user = <<<DELIMETER
      <td>{$type}</td>
 DELIMETER;
 echo $user;
- 
+
 $user1 = <<<DELIMETER
 	<td><a class="btn btn-warning" href="/admin?edit_user&id={$row['user_id']}"><span class="glyphicon glyphicon glyphicon-pencil"></span></a></td>
     <td><a class="btn btn-danger" href="html/php/includes/admin/delete_user.php?id={$row['user_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
@@ -111,7 +111,7 @@ function update_user($update_data){
 		$update[] = '`'.$field . '`=\''.$data.'\'';
 	}
 	mysql_query("UPDATE `users` SET " . implode(', ', $update) . " WHERE `user_id` =" . $_SESSION['user_id']);
-} 
+}
 /*********************************************Email Activation Functions******************/
 function activate($email,$email_code){
 	$email = mysql_real_escape_string($email);
@@ -134,12 +134,12 @@ function change_password($user_id,$password){
 function register_user($register_data){
 	include 'msg.php';
 	array_walk($register_data, 'array_sanitize');
-	$register_data['password'] = md5($register_data['password']); 
+	$register_data['password'] = md5($register_data['password']);
 	$fields = '`'.implode('`, `',array_keys($register_data)).'`';
 	$data = '\''.implode('\', \'',$register_data).'\'';
 	mysql_query("INSERT INTO `users` ($fields) VALUES ($data) ");
 	email($register_data['email'],'Activate Account...!!!',$message );
-	$uid='9870827360';$pwd='8111988';$to=$register_data['mobile_number'];$msg='Welcome to Shoppcart,Check your Email to activate Your Account';
+	$uid='9870827360';$pwd='123';$to=$register_data['mobile_number'];$msg='Welcome to Shoppcart,Check your Email to activate Your Account';
 	include 'sms.php';
 }
 function user_count(){
@@ -184,10 +184,10 @@ function user_id_from_username($username){
 function user_id_from_email($email){
 	$email = sanitize($email);
 	return mysql_result(mysql_query("SELECT `user_id` FROM `users` WHERE `email`= '$email' "), 0 , 'user_id');
-} 
+}
 function login($username, $password) {
 	$user_id = user_id_from_username($username);
-	$username = sanitize($username);  
+	$username = sanitize($username);
 	$password = md5($password);
 	return (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `username`= '$username' AND `password` = '$password' "), 0) == 1) ? $user_id : false;
 }
