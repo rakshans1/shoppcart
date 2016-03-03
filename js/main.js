@@ -61,9 +61,22 @@ $(document).ready(function(){
 		});
 	});
 });
+/*Gif animation*/
+function unload(){
+	document.getElementById('content').style.display ="none";
+    document.getElementById('loader').style.display ="block";
+  }
+  function loading(){
+  	document.getElementById('content').style.display ="block";
+    document.getElementById('loader').style.display ="none";
+    
+  }
+
 /*Page Loading*/
 $(document).ready(function(){
- setTimeout(function(){     
+
+
+ setTimeout(function(){
      $("a.cp_btn ").click(function(){
       $("a.active").removeClass("active");
       $(this).addClass("active");
@@ -72,9 +85,11 @@ $(document).ready(function(){
      	$("li.cp_btn a ").click(function(){
 	         var page = $(this).attr('href');
 	         var url = page.split(/\?+/).pop();
+	         unload();
 	         setTimeout(function(){ 
 			$('#content').load('sub.php?'+url);
-	        },100);
+			loading();
+	        },2000);
     	});
     	/*$("li.cp_btn a ").click(function(){
      	 	var page = $(this).attr('href');
@@ -87,7 +102,7 @@ $(document).ready(function(){
 	         var url = page.split(/\?+/).pop();
 	         setTimeout(function(){ 
 			$('#content').load('sub.php?'+url);
-	        },100);
+	        },5000);
     	});
      
 		
@@ -100,7 +115,7 @@ $(document).ready(function(){
 		 });
 
     	
-	},100);
+	},5000);
 });
 
 
@@ -109,9 +124,5 @@ $(document).ready(function(){
 
 
 
-/*Gif animation*/
-function loading(){
-    document.getElementById('loader').style.display ="none";
-  }
 
 

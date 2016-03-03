@@ -1,3 +1,4 @@
+
 <?php 
 include 'core/init.php';
 protect_page();
@@ -20,6 +21,7 @@ if (empty($_POST) === false) {
 	}
 
 }
+echo "<title>$user_data[first_name] | Shoppcart</title> ";
 require 'html/php/includes/head.req.php'; 
 require 'html/php/includes/header.req.php'; ?><!--This is header-->
 <div class="container">

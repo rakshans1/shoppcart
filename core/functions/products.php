@@ -380,6 +380,12 @@ function product_count(){
 function draft_count(){
     return mysql_result(mysql_query("SELECT COUNT(`draft_id`) FROM `draft`"), 0);
 }
+function report_count(){
+    return mysql_result(mysql_query("SELECT COUNT(`report_id`) FROM `reports`"), 0);
+}
+function log_count($username){
+    return mysql_result(mysql_query("SELECT COUNT(`log_id`) FROM `log` WHERE `moderate_name` = '$username'"), 0);
+}
 /*********************************************Category Functions******************/
 function get_categories($cat_main_id){
 $query = query("SELECT * FROM categories WHERE `cat_main_id` = $cat_main_id ");
@@ -397,9 +403,58 @@ function add(){
     echo "hi";
 }
 function get_products() {
-$query = query(" SELECT * FROM products  ORDER BY RAND() LIMIT 0,12 ;");
+$query = query(" SELECT COUNT(p_id) FROM products;");
 confirm($query);
-while($row = fetch_array($query)) {
+$num = mysqli_fetch_row($query);
+$nums = $num[0];
+$page_rows = 9;
+$last = ceil($nums/$page_rows);
+if($last < 1){
+    $last = 1;
+}
+$pagenum =1;
+if(isset($_GET['pn'])){
+    $pagenum = preg_replace('#[^0-9]#', '', $_GET['pn']);
+}
+if ($pagenum < 1) {
+    $pagenum = 1;
+}elseif ($pagenum > $last) {
+    $pagenum = $last;
+}
+$limit = 'LIMIT ' .($pagenum - 1) * $page_rows . ',' .$page_rows;
+$querys = query(" SELECT * FROM products ORDER BY rand() $limit ;");
+confirm($querys);
+$textline1 = "Page <b>$pagenum</b> of <b>$last</b>";
+$paginationCtrls = '';
+$paginationCtrls .= '<div class="text-center"><nav><ul class="pagination">';
+if ($last != 1) {
+    if ($pagenum > 1) {
+        $previous = $pagenum - 1;
+        $paginationCtrls .= '<li><a href="'.$_SERVER['PHP_SELF'].'?pn='.$previous.'" ><i class="fa fa-chevron-left"></i></a></li>';
+        for ($i=$pagenum-4; $i < $pagenum ; $i++) { 
+            if ($i>0) {
+                $paginationCtrls .= '<li><a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'">'.$i.'</a></li>';
+            }
+            
+        }
+
+    }
+    $paginationCtrls .= '<li class="active"><a href="#">'.$pagenum.'</a></li>';
+    for ($i=$pagenum+1; $i <= $last ; $i++) { 
+            $paginationCtrls .= '<li><a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'">'.$i.'</a></li>';
+            if ($i>$pagenum+4) {
+                break;
+            }
+            
+        }
+        if ($pagenum != $last) {
+            $next = $pagenum + 1;
+            $paginationCtrls .= '<li><a href="'.$_SERVER['PHP_SELF'].'?pn='.$next.'"><i class="fa  fa-chevron-right"></i></a></li>';
+        }
+}
+$paginationCtrls .= '</nav></ul></div>';
+echo '<h2 class="text-center">'.$textline1.'</h2>';
+while($row = fetch_array($querys)) {
 $srt = strtoupper(str_replace("_"," ","{$row['pname']}"));
 $product1 = <<<DELIMETER
 <a class="link" href="{$row['pname']}">
@@ -449,6 +504,7 @@ echo $add;
 }
 echo $product2;
 		}
+    echo $paginationCtrls;    
 }
 function product_exits($productname){
     $productname = sanitize($productname);
@@ -472,11 +528,62 @@ function product_id_from_productname($productname){
 }
 /*********************************************category product Functions******************/
 function get_sub($named,$id) {
-$sql = 'SELECT * FROM products WHERE product_cat_id = '.$id.'';
-$query = query($sql);
+$query = query(" SELECT COUNT(p_id) FROM products WHERE product_cat_id = '.$id.';");
 confirm($query);
+$num = mysqli_fetch_row($query);
+$nums = $num[0];
+$page_rows = 9;
+$last = ceil($nums/$page_rows);
+if($last < 1){
+    $last = 1;
+}
+$pagenum =1;
+if(isset($_GET['pn'])){
+    $pagenum = preg_replace('#[^0-9]#', '', $_GET['pn']);
+}
+if ($pagenum < 1) {
+    $pagenum = 1;
+}elseif ($pagenum > $last) {
+    $pagenum = $last;
+}
+$limit = 'LIMIT ' .($pagenum - 1) * $page_rows . ',' .$page_rows;
+$querys = query(" SELECT * FROM products $limit ;");
+confirm($querys);
+$textline1 = "Page <b>$pagenum</b> of <b>$last</b>";
+$paginationCtrls = '';
+$paginationCtrls .= '<div class="text-center"><nav><ul class="pagination">';
+if ($last != 1) {
+    if ($pagenum > 1) {
+        $previous = $pagenum - 1;
+        $paginationCtrls .= '<li><a href="'.$_SERVER['PHP_SELF'].'?pn='.$previous.'" ><i class="fa fa-chevron-left"></i></a></li>';
+        for ($i=$pagenum-4; $i < $pagenum ; $i++) { 
+            if ($i>0) {
+                $paginationCtrls .= '<li><a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'">'.$i.'</a></li>';
+            }
+            
+        }
+
+    }
+    $paginationCtrls .= '<li class="active"><a href="#">'.$pagenum.'</a></li>';
+    for ($i=$pagenum+1; $i <= $last ; $i++) { 
+            $paginationCtrls .= '<li><a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'">'.$i.'</a></li>';
+            if ($i>$pagenum+4) {
+                break;
+            }
+            
+        }
+        if ($pagenum != $last) {
+            $next = $pagenum + 1;
+            $paginationCtrls .= '<li><a href="'.$_SERVER['PHP_SELF'].'?pn='.$next.'"><i class="fa  fa-chevron-right"></i></a></li>';
+        }
+}
+$paginationCtrls .= '</nav></ul></div>';
+$sql = 'SELECT * FROM products WHERE product_cat_id = '.$id.'';
+$querys = query($sql);
+confirm($querys);
 echo '<h2 class="title text-center">Featured Items IN '.$named.'</h2>';
-while($row = fetch_array($query)) {
+echo '<h2 class="text-center">'.$textline1.'</h2>';
+while($row = fetch_array($querys)) {
 $srt = strtoupper(str_replace("_"," ","{$row['pname']}"));
 $product1 = <<<DELIMETER
 <a class="link" href="{$row['pname']}">
@@ -526,6 +633,7 @@ echo $add;
 }
 echo $product2;
         }
+        echo $paginationCtrls; 
 }
 ?>
 

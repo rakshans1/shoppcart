@@ -1,3 +1,4 @@
+<title>Home | Shoppcart</title>
 <?php require 'core/init.php';
 
 require 'html/php/includes/head.req.php'; //This is head-->

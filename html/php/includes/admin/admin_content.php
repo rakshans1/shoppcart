@@ -3,7 +3,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
+                            Dashboard 
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -87,7 +87,84 @@
                 </div>
         
                 <!-- /.row -->
-
+                <!-- work count -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Moderators <small>Statistics Overview</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-area-chart"></i> Products Uploaded by Each Moderators 
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                        <div class="panel panel-blue">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-male fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><?php echo log_count('akshay');?></div>
+                                        <div>Total Products!</div>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="panel-footer">
+                                    <span class="pull-left">Products Uploaded By <strong>AKSHAY</strong></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel panel-greenm">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-child fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><?php echo log_count('parin');?></div>
+                                        <div>Total Products!</div>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="panel-footer">
+                                    <span class="pull-left">Products Uploaded By <strong>PARIN</strong></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                        </div>
+                    </div>
+          
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel panel-pink">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-female fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><?php echo log_count('shivani');?></div>
+                                        <div>Total Products!</div>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="panel-footer">
+                                    <span class="pull-left">Products Uploaded By <strong>SHIVANI</strong></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+            
+              
+                </div>
+        
+                <!-- /.row -->
 
                 <!-- SECOND ROW WITH TABLES
 

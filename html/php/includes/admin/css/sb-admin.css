@@ -225,3 +225,49 @@ ul.alert-dropdown {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+.panel-pink {
+    border-color: #93323f;
+}
+
+.panel-pink .panel-heading {
+    border-color: #93323f;
+    color: #fff;
+    background-color: #f6546a;
+}
+
+.panel-pink strong {
+    color: #93323f;
+}
+
+.panel-pink a:hover {
+    color: #3d8b3d;
+}
+
+.panel-greenm {
+    border-color: #3d7b66;
+}
+
+.panel-greenm .panel-heading {
+    border-color: #3d7b66;
+    color: #fff;
+    background-color: #66cdaa;
+}
+
+.panel-greenm strong {
+    color: #3d7b66;
+}
+
+.panel-blue {
+    border-color: #044652;
+}
+
+.panel-blue .panel-heading {
+    border-color: #044652;
+    color: #fff;
+    background-color: #088da5;
+}
+
+.panel-blue strong {
+    color: #044652;
+}
+

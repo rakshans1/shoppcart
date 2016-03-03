@@ -1,3 +1,4 @@
+<title>404</title>
 <?php 
 include 'core/init.php';
 require 'html/php/includes/head.req.php';

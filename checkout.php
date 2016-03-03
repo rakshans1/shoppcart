@@ -1,3 +1,4 @@
+<title>Cart | Shoppcart</title>
 <?php  require 'cart.php';
 protect_page();
 require 'html/php/includes/head.req.php'; 

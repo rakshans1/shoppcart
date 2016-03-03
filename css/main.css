@@ -1111,7 +1111,7 @@ h2.title:before{
   float: left;
   line-height: 1.42857;
   margin-left: -1px;
-  padding: 6px 12px;
+  /*padding: 6px 12px;*/
   position: relative;
   text-decoration: none;
   margin-right: 5px;

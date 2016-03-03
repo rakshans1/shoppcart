@@ -1,3 +1,4 @@
+<title>Change Address | Shoppcart</title>
 <?php 
 include 'core/init.php';
 protect_page();

@@ -1,3 +1,4 @@
+<title>Recover | Shoppcart</title>
 <?php include 'core/init.php';
 logged_in_redirect();
 require 'html/php/includes/head.req.php'; //This is head-->

@@ -1,3 +1,4 @@
+<title>Deactivate | Shoppcart</title>
 <?php 
 include 'core/init.php';
 protect_page();

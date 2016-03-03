@@ -1,3 +1,4 @@
+<title>Register | Shoppcart</title>
  <?php include 'core/init.php';
 
 logged_in_redirect();

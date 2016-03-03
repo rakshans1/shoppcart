@@ -1,3 +1,4 @@
+<title>Orders | E-Shoppcart</title>
 <?php 
 include 'core/init.php';
 protect_page();

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shoppcart</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -16,6 +15,6 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-<link rel="apple-touch-icon" sizes="180x180" href="images/favi/apple-icon-180x180.png">
+<link rel="icon" href="images/favi/favicon.ico" type="image/x-icon">
 </head><!--/head-->
 <body>

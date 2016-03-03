@@ -1,3 +1,4 @@
+<title>Change Password | Shoppcart</title>
 <?php 
 include 'core/init.php';
 protect_page();
