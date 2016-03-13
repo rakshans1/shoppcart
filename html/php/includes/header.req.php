@@ -5,7 +5,7 @@
                     <div class="col-sm-6">
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
-                                <li><a href="#"><i class="fa fa-phone"></i> 8286880177</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i> 9870827360</a></li>
                                 <li><a href="mailto:shoppcartcare@gmail.com"target="_blank"><i class="fa fa-envelope"></i> Shoppcart Care</a></li>
                             </ul>
                         </div>
@@ -31,7 +31,7 @@
                         <div class="logo pull-left">
                             <a href="/"><img src="images/home/logo.png" alt="" /></a>
                         </div>
-                       </div> 
+                       </div>
                     <?php  include "aside.php" ?><!--Aside-->
                 </div>
             </div>

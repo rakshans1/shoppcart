@@ -1,6 +1,24 @@
 <?php include 'core/init.php';
 protect_page();
 
+if (isset($_GET['addall'])) {
+	foreach ($_GET as $key => $value) {
+		$add = sanitize($value);
+		$query = query("SELECT * FROM products WHERE p_id = $add ");
+		confirm($query);
+		while($row = fetch_array($query)){
+			if($row['pquant'] != $_SESSION['product_' . $add]) {
+				$_SESSION['product_' . $add]+=1;
+			redirect("checkout");
+			}else{
+				set_message("We only have " .$row['pquant']. " " . "available");
+				redirect("checkout");
+			}
+		}
+	}
+
+	}
+
 if (isset($_GET['add'])) {
 	$add = sanitize($_GET['add']);
 	$query = query("SELECT * FROM products WHERE p_id = $add ");
@@ -43,7 +61,7 @@ function cart(){
 		if ($value > 0) {
 		if (substr($name, 0, 8) == "product_") {
 			$length = strlen($name - 8);
-			$id = sanitize(substr($name, 8,$length)); 
+			$id = sanitize(substr($name, 8,$length));
 			$query = query("SELECT * FROM products WHERE p_id = $id");
 			confirm($query);
 			while($row = fetch_array($query)) {
@@ -61,19 +79,19 @@ function cart(){
 				  <td>{$value}</td>
 				  <td>&#8377; $sub</td>
 				  <td><a class='btn btn-success' href="cart?add={$row['p_id']}"><span class='glyphicon glyphicon-plus'></span></a>   <a class='btn btn-warning' href="cart?remove={$row['p_id']}"><span class='glyphicon glyphicon-minus'></span></a>
-				<a class='btn btn-danger' href="cart?delete={$row['p_id']}"><span class='glyphicon glyphicon-remove'></span></a></td>         
+				<a class='btn btn-danger' href="cart?delete={$row['p_id']}"><span class='glyphicon glyphicon-remove'></span></a></td>
 				  </tr>
 				  <input type="hidden" name="item_name_{$item_name}" value="{$srt}">
 				  <input type="hidden" name="item_number_{$item_number}" value="{$row['p_id']}">
 				  <input type="hidden" name="amount_{$amount}" value="{$row['pprice']}">
 			      <input type="hidden" name="quantity_{$quantity}" value="{$value}">
 DELIMETER;
-			echo $product;	
+			echo $product;
 			$item_name++;
 			$item_number++;
 			$amount++;
 			$quantity++;
-		
+
 			}
 			$_SESSION['item_total'] = $total += $sub;
 			$_SESSION['item_quantity'] = $item_quantity;
@@ -84,19 +102,20 @@ DELIMETER;
 function show_paypal() {
 if(isset($_SESSION['item_quantity']) && $_SESSION['item_quantity'] >= 1) {
 $paypal_button = <<<DELIMETER
-	
+
     <input type="image" name="upload" border="0"
 src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
 alt="PayPal - The safer, easier way to pay online">
 DELIMETER;
 return $paypal_button;
   }
-} 
-function process_transaction($payment_amount,$payment_currency,$txn_id,$payment_status){
-	$amount 		=	$payment_amount;
-	$currency 		= 	$payment_currency;
-	$transaction	= 	$txn_id;
-	$status 		=  	$payment_status;
+}
+function process_transaction(){
+	if(isset($_GET['tx'])) {
+	$amount = $_GET['amt'];
+	$currency = $_GET['cc'];
+	$transaction = $_GET['tx'];
+ 	$status = $_GET['st'];
 	$total = 0;
 	$item_quantity = 0;
 	$send_order = query("INSERT INTO orders (order_amount, order_transaction, order_currency, order_status,order_user_id ) VALUES('{$amount}', '{$transaction}','{$currency}','{$status}','{$_SESSION['user_id']}')");
@@ -115,18 +134,20 @@ function process_transaction($payment_amount,$payment_currency,$txn_id,$payment_
 			$pprice = $row['pprice'];
 			$item_quantity +=$value;
 			$srt = strtoupper(str_replace("_"," ","{$row['pname']}"));
-			$new_quant = $row['pquant'] - $value; 
+			$new_quant = $row['pquant'] - $value;
 			$update_product_quant =  query("UPDATE products SET pquant = '{$new_quant}' WHERE p_id =  {$id} ");
 			confirm($update_product_quant);
 			$insert_report = query("INSERT INTO reports (p_id,order_id,pname, pprice, pquant,report_user_id) VALUES('{$id}','{$last_id}','{$srt}','{$pprice}','{$value}','{$_SESSION['user_id']}')");
-			confirm($insert_report);	
+			confirm($insert_report);
 			}
 			$total += $sub;
 			$item_quantity;
    }
 }
  }
-	
+}else {
+	//redirectjava('/');
+}
 }
 function thank(){
 	$total = 0;
@@ -139,7 +160,7 @@ function thank(){
 		if ($value > 0) {
 		if (substr($name, 0, 8) == "product_") {
 			$length = strlen($name - 8);
-			$id = sanitize(substr($name, 8,$length)); 
+			$id = sanitize(substr($name, 8,$length));
 			$query = query("SELECT * FROM products WHERE p_id = $id");
 			confirm($query);
 			while($row = fetch_array($query)) {
@@ -158,12 +179,12 @@ function thank(){
 				  <td>&#8377; $sub</td>
 				  </tr>
 DELIMETER;
-			echo $product;	
+			echo $product;
 			$item_name++;
 			$item_number++;
 			$amount++;
 			$quantity++;
-		
+
 			}
 			$_SESSION['item_total'] = $total += $sub;
 			$_SESSION['item_quantity'] = $item_quantity;
@@ -171,7 +192,5 @@ DELIMETER;
 }
  }
 }
-function verifyWithPayPal($tx,$at){
-}
+
 ?>
- 

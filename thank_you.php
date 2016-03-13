@@ -1,13 +1,13 @@
 <title>Thank-You | Shoppcart</title>
-<?php require 'cart.php'; 
+<?php require 'cart.php';
 protect_page();
 require 'html/php/includes/head.req.php'; ?>
 
-
+<?php process_transaction(); ?>  
 <body>
 <header id="header"><!--header -->
-        
-        
+
+
         <div class="header-middle"><!--header-middle-->
             <div class="container">
                 <div class="row">
@@ -15,15 +15,15 @@ require 'html/php/includes/head.req.php'; ?>
                         <div class="logo text-center">
                             <a href="/"><img src="images/home/logo.png" alt="" /></a>
                         </div>
-                       </div> 
-                    
+                       </div>
+
                 </div>
             </div>
         </div><!--/header-middle-->
 </header><!--/header-->
 <!-- Page Content -->
-    
- <div class="container">    
+
+ <div class="container">
       <div class="col-xs-1 hidden-xs">
       <i class="fa fa-check fa-5x"></i>
       </div>
@@ -38,13 +38,13 @@ require 'html/php/includes/head.req.php'; ?>
            <th>Price</th>
            <th>Quantity</th>
            <th>Sub-total</th>
-     
+
           </tr>
         </thead>
         <tbody>
-            <?php thank(); ?>  
+            <?php thank(); ?>
         </tbody>
-    </table>    
+    </table>
 <div class="col-xs-4 pull-right ">
 <h2>Order Summary </h2>
 
@@ -52,7 +52,7 @@ require 'html/php/includes/head.req.php'; ?>
 
 <tr class="cart-subtotal">
 <th>Items:</th>
-<td><span class="amount"><?php 
+<td><span class="amount"><?php
 echo isset($_SESSION['item_quantity']) ? $_SESSION['item_quantity'] : $_SESSION['item_quantity'] = "0";?></span></td>
 </tr>
 <tr class="shipping">
@@ -61,16 +61,16 @@ echo isset($_SESSION['item_quantity']) ? $_SESSION['item_quantity'] : $_SESSION[
 </tr>
 <tr class="order-total">
 <th>Order Total</th>
-<td><strong><span class="amount">&#8377;<?php 
+<td><strong><span class="amount">&#8377;<?php
 echo isset($_SESSION['item_total']) ? $_SESSION['item_total'] : $_SESSION['item_total'] = "0";?>
 </span></strong> </td>
 </tr>
 </tbody>
 </table>
-</div><!-- CART TOTALS-->      
-  </div>    
-     
-    
+</div><!-- CART TOTALS-->
+  </div>
+
+
  <!-- /.container -->
 
 

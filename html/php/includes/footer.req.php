@@ -16,13 +16,13 @@
                     <div class="col-sm-3">
                         <div class="address">
                             <img src="images/home/map.png" alt="" />
-                            <p>Shah & Anchor Kutchhi Engineering College,Chembur</p>
+                            <p>Ramrao Adik Institute of Technology</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="footer-widget">
             <div class="container">
                 <div class="row">
@@ -73,11 +73,11 @@
                             </form>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
@@ -87,9 +87,9 @@
                 </div>
             </div>
         </div>
-        
-    </footer><!--/Footer-->          
-                   
+
+    </footer><!--/Footer-->
+
 
 
 

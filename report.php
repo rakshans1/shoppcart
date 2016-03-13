@@ -1,10 +1,10 @@
-<?php 
+<?php
 include 'core/init.php';
 protect_page();
-require 'html/php/includes/head.req.php'; 
-require 'html/php/includes/header.req.php'; 
+require 'html/php/includes/head.req.php';
+require 'html/php/includes/header.req.php';
 if(isset($_GET['oi'])) {
-$order_id = sanitize($_GET['oi']);	
+$order_id = sanitize($_GET['oi']);
 } else {
 redirectjava("/orders");
 }
@@ -24,5 +24,8 @@ redirectjava("/orders");
   <?php get_reports_user(); ?>
   </tbody>
 </table>
+  <?php add_all_to_cart(); ?>
+  <br>
 </div>
-<?php require 'html/php/includes/footer.req.php'; ?><!--This is footer--> 
+
+<?php require 'html/php/includes/footer.req.php'; ?><!--This is footer-->

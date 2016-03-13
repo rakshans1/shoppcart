@@ -23,10 +23,11 @@ $query = query("SELECT * FROM reports WHERE order_id = $order_id");
 confirm($query);
 while($row = fetch_array($query)) {
 	if ($row['report_user_id'] == $_SESSION['user_id']) {
+    $srt = strtoupper(str_replace(" ","_","{$row['pname']}"));
 $report = <<<DELIMETER
         <tr>
             <td>{$row['order_id']}</td>
-            <td><a href="{$row['pname']}" target="_blank">{$row['pname']}</a></td>
+            <td><a href="$srt" target="_blank">{$row['pname']}</a></td>
             <td>{$row['pprice']}</td>
             <td>{$row['pquant']}</td>
         </tr>
@@ -36,6 +37,22 @@ echo $report;
 				redirectjava('/');
 			}
    }
+}
+function add_all_to_cart(){
+  $i = 0;
+  global $order_id;
+  $query = query("SELECT * FROM reports WHERE order_id = $order_id");
+  confirm($query);
+  echo "<a href=\"cart?addall=";
+  while($row = fetch_array($query)) {
+    $i = $i +1;
+    echo "{$row['p_id']}";
+    $count = count($row);
+    if ($count != 0) {
+      echo "&addall{$i}=";
+    }
+  }
+  echo "0\"class=\"btn btn-primary btn-block\"><i class=\"fa fa-shopping-cart\"> </i> Add all items to cart</a>";
 }
 /************************admin users***********************/
 function display_users() {
@@ -139,7 +156,7 @@ function register_user($register_data){
 	$data = '\''.implode('\', \'',$register_data).'\'';
 	mysql_query("INSERT INTO `users` ($fields) VALUES ($data) ");
 	email($register_data['email'],'Activate Account...!!!',$message );
-	$uid='9870827360';$pwd='123';$to=$register_data['mobile_number'];$msg='Welcome to Shoppcart,Check your Email to activate Your Account';
+	$uid='9870827360';$pwd='8111988';$to=$register_data['mobile_number'];$msg='Welcome to Shoppcart,Check your Email to activate Your Account';
 	include 'sms.php';
 }
 function user_count(){

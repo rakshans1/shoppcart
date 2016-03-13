@@ -109,13 +109,13 @@
                                         <i class="fa fa-male fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo log_count('akshay');?></div>
+                                        <div class="huge"><?php echo log_count('rakshans1');?></div>
                                         <div>Total Products!</div>
                                     </div>
                                 </div>
                             </div>
                                 <div class="panel-footer">
-                                    <span class="pull-left">Products Uploaded By <strong>AKSHAY</strong></span>
+                                    <span class="pull-left">Products Uploaded By <strong>Rakshan</strong></span>
                                     <div class="clearfix"></div>
                                 </div>
                         </div>
@@ -128,13 +128,13 @@
                                         <i class="fa fa-child fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo log_count('parin');?></div>
+                                        <div class="huge"><?php echo log_count('User2');?></div>
                                         <div>Total Products!</div>
                                     </div>
                                 </div>
                             </div>
                                 <div class="panel-footer">
-                                    <span class="pull-left">Products Uploaded By <strong>PARIN</strong></span>
+                                    <span class="pull-left">Products Uploaded By <strong>User2</strong></span>
                                     <div class="clearfix"></div>
                                 </div>
                         </div>
@@ -148,13 +148,13 @@
                                         <i class="fa fa-female fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo log_count('shivani');?></div>
+                                        <div class="huge"><?php echo log_count('User3');?></div>
                                         <div>Total Products!</div>
                                     </div>
                                 </div>
                             </div>
                                 <div class="panel-footer">
-                                    <span class="pull-left">Products Uploaded By <strong>SHIVANI</strong></span>
+                                    <span class="pull-left">Products Uploaded By <strong>User3</strong></span>
                                     <div class="clearfix"></div>
                                 </div>
                             </a>
