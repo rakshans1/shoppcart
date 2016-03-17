@@ -1,9 +1,9 @@
 a {
-color: #FE980F; 
+color: #FE980F;
 }
 .panel-warning .category-products {
-  
-  border-color: #FE980F; 
+
+  border-color: #FE980F;
   border-width: 1px;
 }
 .badge {
@@ -104,6 +104,7 @@ h2.title {
 /*************************
 *******product details******
 ****************************/
+
 .productinfo h2{
   color: #28c940;
   font-family: 'Roboto', sans-serif;
@@ -115,10 +116,10 @@ h2.title {
   background: #fff;
   margin-top: 50px;
   margin-left: 10px;
-  margin-right:10px;  
+  margin-right:10px;
   padding-bottom: 2px;
   padding: 20px;
-  
+
 }
 }
 @media (max-width: 640px) {
@@ -127,7 +128,7 @@ h2.title {
   margin-top: 50px;
   padding-bottom: 2px;
   padding: 5px;
-  
+
 }
 }
 .body {
@@ -204,8 +205,7 @@ h2.title {
  border: 1px solid #19bc9c;
 }
 .pagination i {
-  
-  padding: 3px 3px;
-  
-}
 
+  padding: 3px 3px;
+
+}

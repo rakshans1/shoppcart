@@ -17,23 +17,23 @@ logged_in_redirect();
                }
         if (preg_match("/\\s/", $_POST['username'])== true) {
                    $errors[] = 'Your Username must not contain space.';
-               }       
+               }
         if (strlen($_POST['password'])<6) {
                  $errors[] ='Your password must be at least 6 characters';
-              } 
+              }
         if ($_POST['password']!= $_POST['password_again']) {
                       $errors[]='Password do not match.';
-                   } 
+                   }
          if (email_exits($_POST['email'])===true) {
                       $errors[] = 'Sorry, The Email \''.$_POST['email'].'\' is already in use.';
-                   }   
+                   }
          if (mobile_number_exits($_POST['mobile_number'])===true) {
                       $errors[] = 'Sorry, The Mobile Number \''.$_POST['mobile_number'].'\' is already in use.';
-                   }    
+                   }
          if (strlen($_POST['mobile_number'])>10 || strlen($_POST['mobile_number'])<10 ) {
                  $errors[] ='Enter valid mobile number';
-              } 
-                                      
+              }
+
     }
 }
 ?>
@@ -53,8 +53,8 @@ logged_in_redirect();
 <?php require 'html/php/includes/head.req.php'; ?><!--This is head-->
 <body>
 <header id="header"><!--header -->
-        
-        
+
+
         <div class="header-middle"><!--header-middle-->
             <div class="container">
                 <div class="row">
@@ -62,8 +62,8 @@ logged_in_redirect();
                         <div class="logo text-center">
                             <a href="/"><img src="images/home/logo.png" alt="" /></a>
                         </div>
-                       </div> 
-                    
+                       </div>
+
                 </div>
             </div>
         </div><!--/header-middle-->
@@ -96,7 +96,7 @@ logged_in_redirect();
     exit();
 
  }elseif(empty($errors)=== false){ ?>
-        
+
 
 <div class="alert alert-danger alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -115,7 +115,7 @@ logged_in_redirect();
     <div class="form-group">
         <input type="text" name="last_name" class="form-control" placeholder="Last Name" >
     </div>
-    
+
     <div class="form-group">
         <input type="text" name="address" class="form-control" placeholder="Address*" required>
     </div>

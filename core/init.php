@@ -1,6 +1,6 @@
 <?php
 session_start();
-//error_reporting();
+error_reporting();
 error_reporting(E_ALL ^ E_DEPRECATED);
 
 

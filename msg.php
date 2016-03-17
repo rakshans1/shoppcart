@@ -14,7 +14,7 @@ $message ='<EOF
 				<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tbody><tr>
 				<td align="left" valign="bottom" height="50">
-				<a href="shoppcart.ddns.net" title="Visit Shoppcart" target="_blank">
+				<a href="shoppcart.dev" title="Visit Shoppcart" target="_blank">
 						<img width="200" height="auto" border="0" src="https://googledrive.com/host/0B5FKToPv769iQUZOcmlzd3JTTms" style="text-decoration:none;display:block;outline:none" class="CToWUd">
 						</a>
 						</td>

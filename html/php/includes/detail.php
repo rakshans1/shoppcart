@@ -2,9 +2,9 @@
 <div class="row">
 		<div class="col-sm-4 col-xs-12">
 			<div class="container-main">
-				<div class="pull-right">
+				<!-- <div class="pull-right">
 					<i class="fa fa-heart fa-3x">&nbsp</i>
-				</div>
+				</div> -->
 				<div class="productinfo">
 				<img class ="img-responsive" src="<?php  echo $product_data['pimage'];?>"  alt="" />
 				</div>
@@ -23,7 +23,7 @@
 					<br>
 					<div class="row">
                         <div class="col-xs-12">
-                        
+
                         <?php
 							$s = $product_data['p_id'];
 							echo '<a href="cart?add='.$s.'" class="btn btn-default add-to-carts">Buy Now</a>';
@@ -32,20 +32,23 @@
 							}else{
 								echo '<a href="cart?add='.$s.'" class="btn btn-default add-to-carts"><i class="fa fa-shopping-cart"></i> Add to cart</a>';
 							}
+							if (logged_in() === true) {
 							if (has_access($session_user_id,1)=== true) {
 								    echo '<a href="admin?edit_product&id='.$s.'" class="btn btn-warning "><span class="glyphicon glyphicon glyphicon-pencil"></span></a>';
 								}elseif (has_access($session_user_id,2)=== true) {
 									echo '<a href="moderate?edit_product&id='.$s.'" class="btn btn-warning "><span class="glyphicon glyphicon glyphicon-pencil"></span></a>';
 								}
-
-								
+							}
 							?>
                         </div>
-                    </div> 	
-                    <br>
+                    </div>
 				</div>
+				<?php
+				echo '<a href="compare?add='.$s.'" class="btn btn-primary add-to-compare text-center"><i class="fa fa-hand-spock-o"></i> Add to compare</a>';?>
 		</div><!--/col-md-9-->
 		 </div>
+
+		 <br>
 		</div>
 </div><!--row-->
 <div class="row">
@@ -68,5 +71,3 @@
 		</div>
 </div><!--row-->
 </div><!--body-->
-
-
