@@ -1,5 +1,5 @@
 {
-    "engines": {
-        "php": "5.3.23"
+    "require": {
+        "ext-mysql": "*"
     }
 }
