@@ -5,6 +5,9 @@
    "require": {
       "ext-gettext": "*"
     },
+    "require": {
+       "mysql": "*"
+     },
    "require-dev": {
       "heroku/heroku-buildpack-php": "*"
    }
