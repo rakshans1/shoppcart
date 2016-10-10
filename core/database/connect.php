@@ -6,8 +6,8 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 
-mysql_connect('localhost','root','123');
+mysql_connect($server,$username, $password);
 mysql_select_db($db);
-// $connection = mysqli_connect('localhost','root','123','shoppcart');
+$connection = mysqli_connect('localhost','root','123','shoppcart');
 
 ?>
