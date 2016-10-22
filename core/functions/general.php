@@ -44,12 +44,12 @@ return mysqli_fetch_array($result);
 /*********************************************Login & Register Functions******************/
 function email($to,$subject,$message){
  $mail = new PHPMailer();
- // $mail->IsSMTP();
+ $mail->IsSMTP();
  $mail->CharSet = 'UTF-8';
  $mail->Host       = "smtp.gmail.com";
  $mail->SMTPAuth   = true;
- $mail->SMTPSecure = "tls";
- $mail->Port       = 587;
+ $mail->SMTPSecure = "ssl";
+ $mail->Port       = 465;
  $mail->Username   = "shoppcartcare@gmail.com";
  $mail->Password   = "shoppcart007";
  $mail->setFrom('shoppcartcare@gmail.com', 'Shoppcart');
