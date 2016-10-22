@@ -43,7 +43,7 @@ return mysqli_fetch_array($result);
 }
 /*********************************************Login & Register Functions******************/
 function email($to,$subject,$message){
-	$from = new SendGrid\Email(null, "shoppcartcare@shoppcart.herokuapp.com");
+	$from = new SendGrid\Email(null, "shoppcartcare@gmail.com");
 	$subject = $subject;
 	$to = new SendGrid\Email(null, $to);
 	$content = new SendGrid\Content("text/html", $message);
@@ -53,9 +53,6 @@ function email($to,$subject,$message){
 	$sg = new \SendGrid($apiKey);
 
 	$response = $sg->client->mail()->send()->post($mail);
-	echo $response->statusCode();
-	echo $response->headers();
-	echo $response->body();
 }
 function logged_in_redirect(){
 	if (logged_in()===true ){
