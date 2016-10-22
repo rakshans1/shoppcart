@@ -43,26 +43,19 @@ return mysqli_fetch_array($result);
 }
 /*********************************************Login & Register Functions******************/
 function email($to,$subject,$message){
- $mail = new PHPMailer();
- $mail->IsSMTP();
- $mail->CharSet = 'UTF-8';
- $mail->Host       = "smtp.gmail.com";
- $mail->SMTPAuth   = true;
- $mail->SMTPSecure = "ssl";
- $mail->Port       = 465;
- $mail->Username   = "shoppcartcare@gmail.com";
- $mail->Password   = "shoppcart007";
- $mail->setFrom('shoppcartcare@gmail.com', 'Shoppcart');
- $mail->IsHTML(true);
- $mail->addAddress($to);
- $mail->Subject = $subject;
- $mail->Body    = $message;
- if(!$mail->send()) {
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Message has been sent';
-}
+	$from = new SendGrid\Email(null, "shoppcartcare@shoppcart.herokuapp.com");
+	$subject = $subject;
+	$to = new SendGrid\Email(null, $to);
+	$content = new SendGrid\Content("text/html", $message);
+	$mail = new SendGrid\Mail($from, $subject, $to, $content);
+
+	$apiKey = getenv('SENDGRID_API_KEY');
+	$sg = new \SendGrid($apiKey);
+
+	$response = $sg->client->mail()->send()->post($mail);
+	echo $response->statusCode();
+	echo $response->headers();
+	echo $response->body();
 }
 function logged_in_redirect(){
 	if (logged_in()===true ){

@@ -1,6 +1,6 @@
 {
     "require": {
         "ext-mysql": "*",
-        "phpmailer/phpmailer": "^5.2"
+        "sendgrid/sendgrid": "^5.1"
     }
 }
