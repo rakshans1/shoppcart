@@ -44,7 +44,7 @@ return mysqli_fetch_array($result);
 /*********************************************Login & Register Functions******************/
 function email($to,$subject,$message){
  $mail = new PHPMailer();
- $mail->IsSMTP();
+ // $mail->IsSMTP();
  $mail->CharSet = 'UTF-8';
  $mail->Host       = "smtp.gmail.com";
  $mail->SMTPAuth   = true;
