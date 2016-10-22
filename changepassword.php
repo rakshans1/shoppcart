@@ -1,5 +1,5 @@
 <title>Change Password | Shoppcart</title>
-<?php 
+<?php
 include 'core/init.php';
 protect_page();
 if (empty($_POST) === false) {
@@ -22,7 +22,7 @@ if (empty($_POST) === false) {
 
 
 }
-require 'html/php/includes/head.req.php'; 
+require 'html/php/includes/head.req.php';
 require 'html/php/includes/header.req.php'; ?>
 
 <div class="container">
@@ -41,13 +41,13 @@ require 'html/php/includes/header.req.php'; ?>
                         <li class=" "><a class=""  href="wishlist">My Wishlist</a></li>
                         <li class=" "><a class=""  href="checkout">My Cart</a></li>
                     </ul>
-                    <img src="images/home/line.png" class="line">   
+                    <img src="images/home/line.png" class="line">
                 <h4>Settings</h4>
                     <ul class="nav nav-pills nav-stacked ">
                         <li class="  "><a class=""  href="account">Personal Information</a></li>
                         <li class=" active "><a class=""  href="changepassword">Change Password</a></li>
                         <li class=" "><a class=""  href="address">Addresses</a></li>
-                        <li class=""><a class=""  href="deactivate">Deactivate ount</a></li>
+                        <li class=""><a class=""  href="deactivate">Deactivate Account</a></li>
                     </ul>
               </div><!--/panel body-->
             </div><!--/panel-->
@@ -58,10 +58,10 @@ require 'html/php/includes/header.req.php'; ?>
  if (isset($_GET['r']) === true && empty($_GET['r']) === true) {
                  echo '<div class="alert alert-warning alert-dismissible" role="alert">
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      You must change your password... 
+                      You must change your password...
                     </div>';
-             } 
-                     
+             }
+
  if (empty($_POST)===false && empty($errors)=== true) {
     change_password($session_user_id,$_POST['password']);
     echo '<div class="alert alert-success alert-dismissible" role="alert">
@@ -69,7 +69,7 @@ require 'html/php/includes/header.req.php'; ?>
   Password Changed Successfully
 </div>';
  }elseif(empty($errors)=== false){ ?>
-        
+
 
 <div class="alert alert-danger alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -77,7 +77,7 @@ require 'html/php/includes/header.req.php'; ?>
 </div>
 <?php
  }?>
-<div class="col-md-9 col-md-offset-2">    
+<div class="col-md-9 col-md-offset-2">
 <form role="form" action="" method="post" >
     <div class="form-group">
         <input type="password" class="form-control" name="current_password" placeholder="Current Password" required >
@@ -92,9 +92,9 @@ require 'html/php/includes/header.req.php'; ?>
     <button type="submit" class="btn btn-primary btn-block ">Change Password</button>
     </div>
  </form>
-</div><br>           
-            
+</div><br>
+
         </div><!--/col-md-9-->
     </div><!--/row-->
 </div><!--/container-->
-<?php require 'html/php/includes/footer.req.php'; ?><!--This is footer--> 
+<?php require 'html/php/includes/footer.req.php'; ?><!--This is footer-->
