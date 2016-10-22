@@ -14,8 +14,8 @@ $message ='<<<EOF
 				<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tbody><tr>
 				<td align="left" valign="bottom" height="50">
-				<a href="shoppcart.dev" title="Visit Shoppcart" target="_blank">
-						<img width="139" height="39" border="0" src="https://googledrive.com/host/0B5FKToPv769iOUR5ZjZwWWxqR1U" style="text-decoration:none;display:block;outline:none" class="CToWUd">
+				<a href="shoppcart.herokuapp.com" title="Visit Shoppcart" target="_blank">
+						<img width="139" height="39" border="0" src="https://raw.githubusercontent.com/rakshans1/shoppcart/master/images/logo.png" style="text-decoration:none;display:block;outline:none" class="CToWUd">
 						</a>
 						</td>
 						</tr>

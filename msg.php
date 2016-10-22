@@ -14,8 +14,8 @@ $message ='<EOF
 				<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tbody><tr>
 				<td align="left" valign="bottom" height="50">
-				<a href="shoppcart.dev" title="Visit Shoppcart" target="_blank">
-						<img width="200" height="auto" border="0" src="https://googledrive.com/host/0B5FKToPv769iQUZOcmlzd3JTTms" style="text-decoration:none;display:block;outline:none" class="CToWUd">
+				<a href="https://shoppcart.herokuapp.com" title="Visit Shoppcart" target="_blank">
+						<img width="200" height="auto" border="0" src="https://raw.githubusercontent.com/rakshans1/shoppcart/master/images/logo.png" style="text-decoration:none;display:block;outline:none" class="CToWUd">
 						</a>
 						</td>
 						</tr>
@@ -63,7 +63,7 @@ $message ='<EOF
 				<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tbody><tr>
 				<td align="center" style="padding:14px 20px 14px 20px;background-color:#FE980F;border-radius:4px">
-				<a href="shoppcart.dev/activate?email='.$register_data['email'].'&email_code='.$register_data['email_code'].'"    " style="font-family:helvetica neue,helvetica,arial,sans-serif;font-weight:bold;font-size:18px;line-height:22px;color:#ffffff;text-decoration:none;display:block;text-align:center;max-width:400px;overflow:hidden;text-overflow:ellipsis" target="_blank">
+				<a href="https://shoppcart.herokuapp.com/activate?email='.$register_data['email'].'&email_code='.$register_data['email_code'].'"    " style="font-family:helvetica neue,helvetica,arial,sans-serif;font-weight:bold;font-size:18px;line-height:22px;color:#ffffff;text-decoration:none;display:block;text-align:center;max-width:400px;overflow:hidden;text-overflow:ellipsis" target="_blank">
 				Confirm your email
 				</a>
 				</td>

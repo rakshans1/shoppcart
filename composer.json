@@ -1,5 +1,5 @@
 {
     "require": {
-        "ext-mysql": "*"
+        "phpmailer/phpmailer": "^5.2"
     }
 }

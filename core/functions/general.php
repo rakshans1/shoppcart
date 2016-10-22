@@ -43,9 +43,24 @@ return mysqli_fetch_array($result);
 }
 /*********************************************Login & Register Functions******************/
 function email($to,$subject,$message){
- $from = "shoppcartcare@shoppcartcare.com";
- $head = "From: $from\r\n" . "Content-type: text/html";
- mail($to, $subject, $message,$head);
+ $mail = new PHPMailer();
+ $mail->IsSMTP();
+ $mail->CharSet = 'UTF-8';
+ $mail->Host       = "smtp.gmail.com";
+ $mail->SMTPAuth   = true;
+ $mail->Port       = 25;
+ $mail->Username   = "shoppcartcare@gmail.com";
+ $mail->Password   = "shoppcart007";
+ $mail->setFrom('shoppcartcare@gmail.com', 'Shoppcart');
+
+ $mail->Subject = $subject;
+ $mail->Body    = $message;
+ if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
+}
 }
 function logged_in_redirect(){
 	if (logged_in()===true ){
