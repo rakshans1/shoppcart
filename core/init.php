@@ -4,7 +4,6 @@ error_reporting();
 error_reporting(E_ALL ^ E_DEPRECATED);
 
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
-// require_once '../vendor/autoload.php';
 require 'database/connect.php';
 require 'functions/general.php';
 require 'functions/users.php';

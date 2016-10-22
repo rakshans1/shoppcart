@@ -48,7 +48,8 @@ function email($to,$subject,$message){
  $mail->CharSet = 'UTF-8';
  $mail->Host       = "smtp.gmail.com";
  $mail->SMTPAuth   = true;
- $mail->Port       = 25;
+ $mail->SMTPSecure = "tls";
+ $mail->Port       = 587;
  $mail->Username   = "shoppcartcare@gmail.com";
  $mail->Password   = "shoppcart007";
  $mail->setFrom('shoppcartcare@gmail.com', 'Shoppcart');
