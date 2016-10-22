@@ -1,4 +1,3 @@
-FROM php:5-apache
+FROM tutum/apache-php
 EXPOSE 80
-ADD . /var/www/html/
-# COPY . /var/www/html/
+ADD . /app

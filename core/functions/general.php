@@ -53,7 +53,7 @@ function email($to,$subject,$message){
  $mail->Username   = "shoppcartcare@gmail.com";
  $mail->Password   = "shoppcart007";
  $mail->setFrom('shoppcartcare@gmail.com', 'Shoppcart');
-
+ $mail->IsHTML(true);
  $mail->addAddress($to);
  $mail->Subject = $subject;
  $mail->Body    = $message;
