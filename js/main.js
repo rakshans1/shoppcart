@@ -101,7 +101,7 @@ $(document).ready(function(){
 	         var page = $(this).attr('href');
 	         var url = page.split(/\?+/).pop();
 	         setTimeout(function(){
-			$('#content').load('sub.php?'+url);
+			$('#content').load('https://shoppcart.herokuapp.com/sub.php?'+url);
 	        },5000);
     	});
 
@@ -111,7 +111,7 @@ $(document).ready(function(){
     	$("li.cp_btn a ").click(function(){
 	         var page = $(this).attr('href');
 	         var url = page.split(/\?+/).pop();
-			$('#contentr').load('sub.php?'+url);
+			$('#contentr').load('https://shoppcart.herokuapp.com/sub.php?'+url);
 		 });
 
 
