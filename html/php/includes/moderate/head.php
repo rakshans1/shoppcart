@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Online Grocery Store">
+    <meta name="keywords" content="Shoppcart, grocery retail platform, online store providers, grocery ecommerce" />
+    <meta name="author" content="Rakshan Shetty">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -14,7 +15,7 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
 <link rel="icon" href="images/favi/favicon.ico" type="image/x-icon">
 </head><!--/head-->
 <body>
