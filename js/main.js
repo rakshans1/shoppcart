@@ -1,8 +1,8 @@
 
 $(document).ready(function() {
- 
+
   var owl = $("#owl-demo");
- 
+
  owl.owlCarousel({
       pagination: false,
       itemsCustom : [
@@ -15,10 +15,10 @@ $(document).ready(function() {
         [1400, 3],
         [1600, 3]
       ],
-      
- 
+
+
   });
- 	
+
   // Custom Navigation Events
   $(".next").click(function(){
     owl.trigger('owl.next');
@@ -38,26 +38,26 @@ $(document).ready(function() {
 
 	var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
-	};	
-		
+	};
+
 /*scroll to top*/
 
 $(document).ready(function(){
 	$(function () {
 		$.scrollUp({
-	        scrollName: 'scrollUp', 
-	        scrollDistance: 300, 
-	        scrollFrom: 'top', 
-	        scrollSpeed: 300, 
-	        easingType: 'linear', 
-	        animation: 'fade', 
-	        animationSpeed: 200, 
-	        scrollTrigger: false, 
-	        scrollText: '<i class="fa fa-angle-up"></i>', 
-	        scrollTitle: false, 
-	        scrollImg: false, 
-	        activeOverlay: false, 
-	        zIndex: 2147483647 
+	        scrollName: 'scrollUp',
+	        scrollDistance: 300,
+	        scrollFrom: 'top',
+	        scrollSpeed: 300,
+	        easingType: 'linear',
+	        animation: 'fade',
+	        animationSpeed: 200,
+	        scrollTrigger: false,
+	        scrollText: '<i class="fa fa-angle-up"></i>',
+	        scrollTitle: false,
+	        scrollImg: false,
+	        activeOverlay: false,
+	        zIndex: 2147483647
 		});
 	});
 });
@@ -69,7 +69,7 @@ function unload(){
   function loading(){
   	document.getElementById('content').style.display ="block";
     document.getElementById('loader').style.display ="none";
-    
+
   }
 
 /*Page Loading*/
@@ -80,14 +80,14 @@ $(document).ready(function(){
      $("a.cp_btn ").click(function(){
       $("a.active").removeClass("active");
       $(this).addClass("active");
-	});	
+	});
 
      	$("li.cp_btn a ").click(function(){
 	         var page = $(this).attr('href');
 	         var url = page.split(/\?+/).pop();
 	         unload();
-	         setTimeout(function(){ 
-			$('#content').load('sub.php?'+url);
+	         setTimeout(function(){
+			$('#content').load('https://shoppcart.herokuapp.com/sub.php?'+url);
 			loading();
 	        },2000);
     	});
@@ -100,29 +100,20 @@ $(document).ready(function(){
     	$("li.acc a ").click(function(){
 	         var page = $(this).attr('href');
 	         var url = page.split(/\?+/).pop();
-	         setTimeout(function(){ 
+	         setTimeout(function(){
 			$('#content').load('sub.php?'+url);
 	        },5000);
     	});
-     
-		
-        
+
+
+
 
     	$("li.cp_btn a ").click(function(){
 	         var page = $(this).attr('href');
-	         var url = page.split(/\?+/).pop(); 
+	         var url = page.split(/\?+/).pop();
 			$('#contentr').load('sub.php?'+url);
 		 });
 
-    	
+
 	},5000);
 });
-
-
-
-
-
-
-
-
-
